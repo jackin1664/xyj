@@ -1,0 +1,32 @@
+export default  [
+    {
+        name:"Saturn",
+        num:"",
+        money:"10",
+        url:require('../assets/saturn.png'),
+    },
+    {
+        name:"Mercury",
+        num:"",
+        money:"20",
+        url:require('../assets/mercury.png'),
+    },
+    {
+        name:"Mars",
+        num:"",
+        money:"30",
+        url:require('../assets/mars.png'),
+    },
+    {
+        name:"Pluto",
+        num:"",
+        money:"40",
+        url:require('../assets/pluto.png'),
+    },
+    {
+        name:"Uranus",
+        num:"",
+        money:"50",
+        url:require('../assets/uranus.png'),
+    }
+]

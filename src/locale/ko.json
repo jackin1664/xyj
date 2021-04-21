@@ -1,0 +1,129 @@
+{
+	"header": {
+		"langList": [
+			{
+				"name": "English",
+				"subName": "Language",
+				"introduce": "英文",
+				"tag": "en"
+			},
+			{
+				"name": "한국어",
+				"subName": "Language",
+				"introduce": "韩文",
+				"tag": "ko"
+			},
+			{
+				"name": "中文简体",
+				"subName": "Language",
+				"tag": "zh"
+			}
+		],
+		"tab": {
+			"a":"집",
+			"b": "농장",
+			"c": "별"
+		},
+		"button":"Connect to a wallet"
+	},
+	"market": {
+		"title": "NFT 슈퍼마켓",
+		"detail": "모든 것이 특별한NFT를 위해 만들어진 시장"
+	},
+	"tab": {
+		"a": "Star",
+		"b": "My Planet",
+		"c": "Composite"
+	},
+	"star": {
+		"btn": "부족한Bake 잔액",
+		"power": "전쟁파워",
+		"datalist":[
+			{
+				"name":"토성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../../src/assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"수성",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			},
+			{
+				"name":"Earth",
+				"num":"873",
+				"money":"1,099",
+				"url":"../assets/saturn.png"
+			}
+		]
+	},
+	"dialog": {
+		"plant": {
+			"title": "별의 가격을 넣으세요",
+			"btn": "취소",
+			"btns": "확인하다"
+		},
+		"compos": {
+			"title": "정말 통합 하시겠습니까?",
+			"btn": "취소",
+			"btns": "확인하다"
+		},
+		"connect": {
+			"title": "계정",
+			"btn": "변화",
+			"detail": "메타마스크와 연결됨",
+			"copy": "주소복사",
+			"view": "Bscan에",
+			"text": "Y거래내역이 여기에 나타날겁니다",
+			"wallet": "Connect to a wallet",
+			"meta": "MetaMask",
+			"back": "Back",
+			"easy": "Easy-to-use browser extension",
+			"init": "Initializing...",
+			"wrong": "Wrong Network",
+			"wrongtext": "Please connect to the appropriate Ethereum network."
+		}
+	},
+	"page": {
+		"a": "이전",
+		"b": "다음"
+	}
+}

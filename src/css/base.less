@@ -1,0 +1,167 @@
+
+.dig-line {
+  width: 100%;
+  height: 35px;
+  background: url("../assect/contentDig/bg-line.png")no-repeat;
+  background-size: 100% 100%;
+  line-height: 35px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  span {
+    width: 70%;
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+    //margin-right: 20%;
+  }
+}
+
+        //弹窗
+
+        .dialog {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          background: #222222;
+          opacity: 0.9;
+          z-index: 99;
+          top: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .dialog-content {
+          width: 532px;
+          height: 362px;
+          background: url("../assect/dialog/bg.png") no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .dialog-contents {
+                  width: 532px;
+                  height: 137px;
+                  background: url("../assect/dialog/bg.png") no-repeat;
+                  background-size: 100% 100%;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  position: relative;
+
+                }
+
+
+        .dialog-error {
+          cursor: pointer;
+          width: 32px;
+          height: 33px;
+          background: url("../assect/dialog/error.png") no-repeat;
+          background-size: 100% 100%;
+          position: absolute;
+          right: -3px;
+          top: -10px;
+        }
+
+        .dialog-card {
+          width: 201px;
+          height: 304px;
+        }
+
+        .dialog-right {
+          margin-left: 30px;
+        }
+
+        .dialog-text {
+          font-size: 16px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #FFFFFF;
+          padding-top: 19px;
+        }
+
+        .dialog-line {
+          width: 263px;
+          height: 3px;
+          margin-top: 19px;
+          //margin-top: 19px;
+        }
+
+        .dialog-btn {
+          margin-top: 59px;
+
+        }
+
+        .gua-btn {
+          cursor: pointer;
+          width: 121px;
+          height: 60px;
+        }
+
+        .zhuan-btn {
+          cursor: pointer;
+          width: 122px;
+          height: 59px;
+        }
+
+
+
+
+        @media (max-width: 960px) {
+          .dig-line {
+            span {
+              text-align: center;
+            }
+          }
+
+          .dialog-contents  {
+           width:90%
+          }
+
+          .dialog-content {
+            width:90%
+          }
+
+          .dialog-card {
+            width:100px;
+            height:152px
+          }
+
+            .dialog-btn {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-top: 30px;
+            }
+
+            .dialog-right {
+              //margin-left: 15px;
+            }
+
+            .gua-btn {
+              cursor: pointer;
+              width: 61px;
+              height: 30px;
+            }
+
+            .zhuan-btn {
+              width: 81px;
+              height: 30px;
+            }
+
+
+
+          .dialog-line {
+            width:130px
+          }
+
+}
