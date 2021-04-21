@@ -180,6 +180,8 @@
       align-items: center;
       justify-content: space-between;
       width: 90%;
+      position: relative;
+      z-index: 99;
     }
 
     .mount-select-left {
@@ -359,6 +361,24 @@
         width: 100%;
       }
       @media (max-width: 960px) {
+
+
+        .select-top-title {
+          font-size: 12px;
+        }
+
+        .tab-info {
+          height: 50px;
+          span {
+            font-size: 12px;
+          }
+        }
+
+        .select-infos {
+          margin-left: 10px;
+        }
+
+
         .mount {
           height: 1623px;
         }
@@ -380,7 +400,7 @@
         }
 
         .tab-line {
-          width: 80px;
+          width: 110px;
         }
 
         .mount-green {
