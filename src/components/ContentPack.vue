@@ -95,7 +95,10 @@
 <!--        弹窗-->
         <div v-show="detail" class="dialog">
           <div class="dialog-content">
-              <img class="dialog-card" src="../assect/dialog/card.png"/>
+            <div class="middle-info-card">
+              <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+              <img class="middle-info-border" src="../assect/dialog/card.png"/>
+            </div>
               <div class="dialog-right">
                 <div class="dialog-text">名称：金箍棒</div>
                 <img class="dialog-line" src="../assect/dialog/line.png"/>
@@ -114,7 +117,10 @@
         </div>
         <div v-show="detailTwo" class="dialog">
           <div class="dialog-content">
-            <img class="dialog-card" src="../assect/dialog/green-card.png"/>
+            <div class="middle-info-card">
+              <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+              <img class="middle-info-border" src="../assect/dialog/green-card.png"/>
+            </div>
             <div class="dialog-right">
               <div class="dialog-text">角色：猴狲</div>
               <img class="dialog-line" src="../assect/dialog/line.png"/>
@@ -136,7 +142,10 @@
         <div v-show="detailThree" class="dialog">
           <div class="dialog-sure">
             <div class="dialog-content">
-              <img class="dialog-card" src="../assect/dialog/green-card.png"/>
+              <div class="middle-info-card">
+                <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                <img class="middle-info-border" src="../assect/dialog/green-card.png"/>
+              </div>
               <div class="dialog-right">
                 <div class="dialog-text">角色：猴狲</div>
                 <img class="dialog-line" src="../assect/dialog/line.png"/>

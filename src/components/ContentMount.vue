@@ -46,7 +46,10 @@
           </div>
 <!--            中间-->
             <div class="mount-brown">
-              <img src="../assect/pack/brown-border.png"/>
+              <div class="middle-info-card">
+                <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                <img class="middle-info-border" src="../assect/pack/brown-border.png"/>
+              </div>
               <div class="mount-brown-right">
                 <span>名称：金箍棒</span>
                 <span>数量：1</span>
