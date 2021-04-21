@@ -12,7 +12,8 @@
           <span @click="goPack()">我的卡牌</span>
         </div>
         <div class="header-icon">
-          <span>登录钱包</span>
+          <span v-if="address">{{address}}</span>
+          <span v-else>登录钱包</span>
           <img class="header-icon-two" src="../assect/header/icon2.png"/>
           <img class="header-icon-two" src="../assect/header/icon3.png"/>
         </div>
@@ -35,7 +36,8 @@
             <div  @click="goPack()" class="header-tab-title">我的卡牌</div>
             <img src="../assect/header/line.png"/>
           <div class="header-h-icon">
-            <span>登录钱包</span>
+            <span v-if="address">{{address}}</span>
+            <span v-else>登录钱包</span>
             <img class="header-icon-two" src="../assect/header/icon2.png"/>
             <img class="header-icon-two" src="../assect/header/icon3.png"/>
           </div>
@@ -51,26 +53,66 @@ export default {
   name: "Header",
   data() {
     return {
+      address:'1',//地址
       showTab:false
     }
   },
   created() {
   },
+  computed: {
+    account_default_address() {
+      return this.$store.state.account.default_address
+    },
+  },
+  watch: {
+    //检测到获取了地址
+    account_default_address() {
+      this.actionAddress()
+    }
+  },
   methods: {
+    async actionAddress() {
+      this.address = await this.action.getSortAddress()
+    },
     goPack() {
       this.$router.push('pack')
+      var mos = function (e) {
+        e.preventDefault();
+      };
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
     },
     goStop() {
       this.$router.push('stop')
+      var mos = function (e) {
+        e.preventDefault();
+      };
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
     },
     goHome() {
       this.$router.push('/')
+      var mos = function (e) {
+        e.preventDefault();
+      };
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
     },
     goBuy() {
       this.$router.push('buy')
+      var mos = function (e) {
+        e.preventDefault();
+      };
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
     },
     goDig() {
       this.$router.push('dig')
+      var mos = function (e) {
+        e.preventDefault();
+      };
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
     },
     showTabs() {
       this.showTab=!this.showTab
@@ -88,13 +130,10 @@ export default {
         document.body.style.overflow = '';//出现滚动条
         document.removeEventListener("touchmove", mos, false);
       }
-      document.body.style.overflow = '';//出现滚动条
-      document.removeEventListener("touchmove", mos, false);
-
     }
   },
   mounted() {
-
+    this.actionAddress()
   }
 }
 </script>
@@ -145,7 +184,7 @@ export default {
   }
 
   .header-icon {
-    width: 15%;
+    width: 18%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -157,6 +196,9 @@ export default {
       font-weight: 400;
       color: #FFD477;
       border-bottom: 1px solid #FFD477;
+    }
+    span:nth-child(1) {
+      border: 0;
     }
   }
 

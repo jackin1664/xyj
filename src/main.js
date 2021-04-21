@@ -12,7 +12,7 @@ import 'swiper/dist/js/swiper.min'
 //以太坊web3
 const Web3 = require('web3');
 
-if (window.web3 && (window.ethereum.chainId == '0x80' || window.ethereum.chainId == '128')) {
+if (window.web3 && (window.ethereum.chainId == '0x4b82' || window.ethereum.chainId == '19330')) {
     Vue.prototype.myWeb3 = new Web3(window.web3.currentProvider);
 }
 
