@@ -88,6 +88,8 @@ export default {
         document.body.style.overflow = '';//出现滚动条
         document.removeEventListener("touchmove", mos, false);
       }
+      document.body.style.overflow = '';//出现滚动条
+      document.removeEventListener("touchmove", mos, false);
 
     }
   },

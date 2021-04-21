@@ -97,14 +97,114 @@
                         </div>
                       </div>
                     </div>
+                    <div class="middle-info">
+                      <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      <div class="middle-info-right">
+                        <div class="info-right">
+                          <span class="info-right-name">角色名称：</span>
+                          <span></span>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性1：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性2：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性3：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">数 <span>量</span> ：</span>
+                          <span>1</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="middle-info middle-infos">
+                      <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      <div class="middle-info-right">
+                        <div class="info-right">
+                          <span class="info-right-name">角色名称：</span>
+                          <span></span>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性1：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性2：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">角色属性3：</span>
+                          <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                        </div>
+                        <div class="info-right">
+                          <span class="info-right-name">数 <span>量</span> ：</span>
+                          <span>1</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 <!--              蓝色部分-->
                 <div class="middle-green middle-bule">
                 <!--                  标题-->
-                <div class="middle-title">花果山阵营</div>
+                <div class="middle-title">龙宫阵营</div>
                 <!--                  下方内容-->
                 <div class="middle-content">
+                  <div class="middle-info">
+                    <img src="../assect/content/border-bule.png" class="middle-info-border"/>
+                    <div class="middle-info-right">
+                      <div class="info-right">
+                        <span class="info-right-name">角色名称：</span>
+                        <span></span>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性1：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性2：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性3：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">数 <span>量</span> ：</span>
+                        <span>1</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="middle-info middle-infos">
+                    <img src="../assect/content/border-bule.png" class="middle-info-border"/>
+                    <div class="middle-info-right">
+                      <div class="info-right">
+                        <span class="info-right-name">角色名称：</span>
+                        <span></span>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性1：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性2：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性3：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">数 <span>量</span> ：</span>
+                        <span>1</span>
+                      </div>
+                    </div>
+                  </div>
                   <div class="middle-info">
                     <img src="../assect/content/border-bule.png" class="middle-info-border"/>
                     <div class="middle-info-right">
@@ -160,9 +260,59 @@
 <!--              黄色部分-->
                 <div class="middle-green middle-yellow">
                 <!--                  标题-->
-                <div class="middle-title">花果山阵营</div>
+                <div class="middle-title">天宫阵营</div>
                 <!--                  下方内容-->
                 <div class="middle-content">
+                  <div class="middle-info">
+                    <img src="../assect/content/border-yellow.png" class="middle-info-border"/>
+                    <div class="middle-info-right">
+                      <div class="info-right">
+                        <span class="info-right-name">角色名称：</span>
+                        <span></span>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性1：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性2：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性3：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">数 <span>量</span> ：</span>
+                        <span>1</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="middle-info middle-infos">
+                    <img src="../assect/content/border-yellow.png" class="middle-info-border"/>
+                    <div class="middle-info-right">
+                      <div class="info-right">
+                        <span class="info-right-name">角色名称：</span>
+                        <span></span>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性1：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性2：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">角色属性3：</span>
+                        <img src="../assect/content/icon-rule-progress.png" class="info-right-icon"/>
+                      </div>
+                      <div class="info-right">
+                        <span class="info-right-name">数 <span>量</span> ：</span>
+                        <span>1</span>
+                      </div>
+                    </div>
+                  </div>
                   <div class="middle-info">
                     <img src="../assect/content/border-yellow.png" class="middle-info-border"/>
                     <div class="middle-info-right">
@@ -390,7 +540,8 @@
 
       .middle-green {
         width: 994px;
-        height: 359px;
+        //height: 359px;
+        height: 700px;
         background: url('../assect/content/bg-one.png') no-repeat;
         background-size: 100% 100%;
       }
@@ -422,9 +573,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
 
       .middle-info {
+        //width: 50%;
+        margin-top: 30px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -524,7 +678,7 @@
         }
 
         .middle-top {
-          width: 90%;
+          width: 85%;
         }
 
         .middle-top-icon {
@@ -536,22 +690,23 @@
         }
 
         .middle-green {
-          width: 282px;
-          height: 430px;
+          //width: 282px;
+          width: 85%;
+          height: 730px;
           background: url("../assect/content/h-border-green.png")no-repeat ;
           background-size: 100% 100%;
         }
 
         .middle-bule {
-          width: 282px;
-          height: 430px;
+          width: 85%;
+          height: 730px;
           background: url("../assect/content/h-border-bule.png")no-repeat ;
           background-size: 100% 100%;
         }
 
         .middle-yellow {
-          width: 282px;
-          height: 430px;
+          width: 85%;
+          height: 730px;
           background: url("../assect/content/h-border-yellow.png")no-repeat ;
           background-size: 100% 100%;
         }
@@ -567,7 +722,7 @@
 
 
         .middle-infos {
-          margin-top: 20px;
+          margin-top: 30px;
         }
 
         //.middle-info {
