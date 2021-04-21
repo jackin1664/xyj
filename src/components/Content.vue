@@ -15,12 +15,12 @@
                 </div>
                 <div class="top-info">
                   <img class="top-info-icon" src="../assect/content/icon-people.png"/>
-                  <span class="top-info-text">我的邀请人数：100人</span>
+                  <span class="top-info-text">我的邀请人数：{{inviteNum}}人</span>
                   <img class="top-info-button" src="../assect/content/icon-get.png"/>
                 </div>
                 <div class="top-info">
                   <img class="top-info-icon" src="../assect/content/icon-num.png"/>
-                  <span class="top-info-text">可是用卡包数量：10</span>
+                  <span class="top-info-text">可是用卡包数量：{{canUseNum}}</span>
                   <img class="top-info-button" src="../assect/content/icon-reward.png"/>
                 </div>
               </div>
@@ -376,9 +376,56 @@
     </template>
 
     <script>
-    export default {
-      name: "Content"
-    }
+      import config from '@/config/base'
+
+      // const tokenAbi = require('@/config/token_abi.json');
+      const saleNFTAbi = require('@/config/saleNFTABI.json');
+      import Decimal from 'decimal.js'
+
+      export default {
+        name: "Stake",
+        components: {},
+        data() {
+          return {
+            inviteNum:0,
+            canUseNum:0
+          }
+        },
+        computed: {
+          account_default_address() {
+            return this.$store.state.account.default_address
+          },
+        },
+        watch: {
+          //检测到获取了地址
+          account_default_address() {
+            this.getAllData()
+          }
+        },
+        methods: {
+          async getInvite(){
+            let v = this
+            var local_address = await v.action.getAddress()
+            let token_address = config.sale
+            //approve
+            let contract = new v.myWeb3.eth.Contract(saleNFTAbi, token_address)
+            let num = await contract.methods.getPlyFreeGftInfo(local_address).call();
+            console.log(`inite`,num)
+            this.inviteNum = num[0]
+            let usedNum = new Decimal(num[1]).mul(10).toFixed()
+            let canUseNum = new Decimal(this.inviteNum).sub(usedNum).toFixed()
+            this.canUseNum = new Decimal(canUseNum).div(10).toFixed()
+          },
+          async getAllData() {
+            this.getInvite()
+          },
+        },
+        mounted() {
+        },
+        created() {
+          this.getAllData()
+        }
+      }
     </script>
 
     <style scoped lang="less">

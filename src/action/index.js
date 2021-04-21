@@ -22,7 +22,7 @@ export default {
     async scanMetaMaskAccount() {
         //以太坊web3
         const Web3 = require('web3');
-        if (window.web3 && window.ethereum && (window.ethereum.chainId == '0x80' || window.ethereum.chainId == '128')){
+        if (window.web3 && window.ethereum && (window.ethereum.chainId == '0x61' || window.ethereum.chainId == '97')) {
             Vue.prototype.myWeb3 =  new Web3(window.web3.currentProvider);
         }
         if (window.ethereum) {
