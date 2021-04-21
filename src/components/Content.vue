@@ -48,7 +48,10 @@
 <!--                  下方内容-->
                   <div class="middle-content">
                     <div class="middle-info">
-                      <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      <div class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
                       <div class="middle-info-right">
                         <div class="info-right">
                           <span class="info-right-name">角色名称：</span>
@@ -584,6 +587,19 @@
         align-items: center;
       }
 
+
+      .middle-info-card {
+        position: relative;
+      }
+
+      .middle-info-moncard {
+        width: 154px;
+        height: 233px;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
       .middle-info-border {
         width: 154px;
         height: 233px;
@@ -736,6 +752,13 @@
         width: 78px;
         height: 116px;
       }
+
+      .middle-info-moncard {
+        width: 78px;
+        height: 116px;
+      }
+
+
       .info-right {
         padding-top: 6px;
       }

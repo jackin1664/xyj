@@ -13,7 +13,11 @@
                 <div class="stop-bottom">
                   <div class="stop-bottom-content">
                     <div @click="actionDetail" class="stop-bottom-info">
-                      <div class="stop-bottom-box">蟠桃</div>
+                      <div class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/stop/boder.png" class="middle-info-border"/>
+                      </div>
+<!--                      <div class="stop-bottom-box">蟠桃</div>-->
                       <div class="stop-right-info">
                         <div class="right-info">
                           <span class="right-info-title">数量</span>
@@ -147,7 +151,10 @@
             <!--        弹窗-->
             <div v-show="detail" class="dialog">
               <div class="dialog-content">
-                <img class="dialog-card" src="../assect/dialog/card.png"/>
+                <div class="middle-info-card">
+                  <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                  <img src="../assect/stop/boder.png" class="middle-info-border"/>
+                </div>
                 <div class="dialog-right">
                   <div class="right-info">
                     <span class="right-info-title">数量</span>

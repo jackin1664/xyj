@@ -46,7 +46,11 @@
 <!--            下半部分-->
             <div class="pack-bottom-info">
               <div @click="actionDetail" class="bottom-info">
-                    <img src="../assect/pack/green-border.png"/>
+                <div class="middle-info-card">
+                  <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                  <img src="../assect/pack/green-border.png" class="middle-info-border"/>
+                </div>
+<!--                    <img src="../assect/pack/green-border.png"/>-->
                     <div class="bottom-info-right">
                       <span>角色：孙悟空</span>
                       <span>战斗力：10000</span>
