@@ -321,6 +321,8 @@
 
 
         .pack-select {
+          position: relative;
+          z-index: 99;
           margin-top: 27px;
           display: flex;
           flex-direction: row;
@@ -384,7 +386,7 @@
 
         .tab-info {
           position: relative;
-          width: 119px;
+          width: 100px;
           height: 58px;
           //line-height: 58;
           background: #212121;
@@ -456,7 +458,20 @@
 
         @media (max-width: 960px) {
 
+          .select-top-title {
+            font-size: 12px;
+          }
 
+          .tab-info {
+            height: 50px;
+            span {
+              font-size: 12px;
+            }
+          }
+
+          .select-infos {
+            margin-left: 10px;
+          }
 
           .pack {
             height: 1223px;
