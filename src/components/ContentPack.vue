@@ -107,8 +107,8 @@
                 <div class="dialog-text">价格：3000TMK</div>
                 <img class="dialog-line" src="../assect/dialog/line.png"/>
                 <div class="dialog-btn">
-                  <img class="gua-btn" src="../assect/dialog/gua.png"/>
-                  <img class="zhuan-btn" src="../assect/dialog/zhuan.png"/>
+                  <div class="gua-btn">挂载</div>
+                  <div class="zhuan-btn">转让赠送</div>
                 </div>
               </div>
             <div @click="closeDialog" class="dialog-error"></div>
@@ -131,8 +131,8 @@
               <div class="dialog-text">质押：30TMK</div>
               <img class="dialog-line" src="../assect/dialog/line.png"/>
               <div class="dialog-btn dialog-btns">
-                <img class="gua-btn" src="../assect/dialog/zhi.png"/>
-                <img class="zhuan-btn" src="../assect/dialog/zhuan.png"/>
+                <div class="zhi-btn" >质押挖矿</div>
+                <div class="zhuan-btn">转让赠送</div>
               </div>
             </div>
             <div @click="closeDialogTwo" class="dialog-error"></div>
@@ -156,15 +156,15 @@
                 <div class="dialog-text">质押：30TMK</div>
                 <img class="dialog-line" src="../assect/dialog/line.png"/>
                 <div class="dialog-btn dialog-btns">
-                  <img class="gua-btn" src="../assect/dialog/zhi.png"/>
-                  <img class="zhuan-btn" src="../assect/dialog/zhuan.png"/>
+                  <div class="zhi-btn" >质押挖矿</div>
+                  <div class="zhuan-btn">转让赠送</div>
                 </div>
               </div>
               <div @click="closeDialogThree" class="dialog-error"></div>
             </div>
             <div class="dialog-contents">
                 <div class="dialog-address">请填写对方钱包地址</div>
-                <img class="gua-btn"/>
+                <div class="gua-btn">确定</div>
             </div>
           </div>
         </div>

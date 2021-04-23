@@ -169,8 +169,8 @@
                   </div>
                   <img class="dialog-line" src="../assect/dialog/line.png"/>
                   <div class="dialog-btn">
-                    <img class="gua-btn" src="../assect/dialog/gua.png"/>
-                    <img class="zhuan-btn" src="../assect/dialog/zhuan.png"/>
+                    <div class="gua-btn">挂载</div>
+                    <div class="zhuan-btn">转让赠送</div>
                   </div>
                 </div>
                 <div @click="closeDialog" class="dialog-error"></div>
