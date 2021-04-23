@@ -10,6 +10,9 @@ export default {
             }
         }
     },
+    async sortAddress(address){
+        return address.substr(0, 6) + '...' + address.substr(38)
+    },
     async getSortAddress() {
         if (window.ethereum) {
             let address = await window.ethereum.selectedAddress

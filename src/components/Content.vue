@@ -16,7 +16,6 @@
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-people.png"/>
             <span class="top-info-text">我的邀请人数：{{ inviteNum }}人</span>
-            <img @click="actionApprove" class="top-info-button" src="../assect/content/icon-get.png"/>
           </div>
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-num.png"/>
@@ -54,8 +53,8 @@
           <div class="middle-content">
             <div v-for="item in huaguoshan" :key="item.type" class="middle-info">
               <div class="middle-info-card">
-                <img :src="item.img" class="middle-info-moncard"/>
-                <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                <img :src="item.img" class="middle-info-border" />
+                <img src="../assect/content/border-green.png" class="middle-info-moncard" />
               </div>
               <div class="middle-info-right">
                 <div class="info-right">
@@ -90,8 +89,8 @@
           <div class="middle-content">
             <div v-for="item in longgong" :key="item.type" class="middle-info">
               <div class="middle-info-card">
-                <img :src="item.img" class="middle-info-moncard"/>
-                <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                <img :src="item.img"  class="middle-info-border"/>
+                <img src="../assect/content/border-bule.png" class="middle-info-moncard"/>
               </div>
               <div class="middle-info-right">
                 <div class="info-right">
@@ -126,8 +125,8 @@
           <div class="middle-content">
             <div v-for="item in tiangong" :key="item.type" class="middle-info">
               <div class="middle-info-card">
-                <img :src="item.img" class="middle-info-moncard"/>
-                <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                <img :src="item.img" class="middle-info-border"/>
+                <img src="../assect/content/border-yellow.png" class="middle-info-moncard" />
               </div>
               <div class="middle-info-right">
                 <div class="info-right">
@@ -163,8 +162,6 @@
 
 <script>
 import config from '@/config/base'
-
-const tokenAbi = require('@/config/token_abi.json');
 const saleNFTAbi = require('@/config/saleNFTABI.json');
 import Decimal from 'decimal.js'
 export default {
@@ -253,38 +250,7 @@ export default {
         }
       })
     },
-    async actionApprove() {
-      let v = this
-      let reward_address = config.sale
-      let token_address = config.usdt
-      var local_address = await v.action.getAddress()
 
-      //approve
-      let contract = new v.myWeb3.eth.Contract(tokenAbi, token_address)
-      const approveData = contract.methods.approve(reward_address, '1000000000000000000000000000').encodeABI();
-      console.log('approvedata', approveData)
-      await v.myWeb3.eth.sendTransaction({
-        from: local_address,
-        to: token_address,
-        value: 0,
-        data: approveData
-      })
-          .on('transactionHash', function (hash) {
-            //hash
-            console.log(`hash: ` + hash)
-            v.$toast('Transaction has send please wait result')
-            v.approveHash = hash;
-            v.timer = setInterval(v.checkApproved, 1000);
-            //server order
-          }).on('receipt', function (receipt) {
-            //receipt
-            console.log(receipt)
-          }).on('error', function (receipt) {
-            //receipt
-            console.log(receipt)
-          })
-      this.getAllData()
-    },
     async actionSale() {
       let v = this
       let reward_address = config.sale

@@ -15,9 +15,9 @@
 <!--                左边-->
                   <div class="one-bottom-left">
                       <img class="crystal-img" src="../assect/contentDig/crystal.png"/>
-                      <span>矿池总质押卡牌数量：5073张</span>
-                      <span>矿池总战力值：1713649</span>
-                      <span>矿池合约地址：0*A5......cdcd</span>
+                      <span>矿池总质押卡牌数量：{{totalStakingNFTAmount}}</span>
+                      <span>矿池总战力值：{{totalStakingPower}}</span>
+                      <span>矿池合约地址：{{rewardAddress}}</span>
                       <img class="rule-icon" src="../assect/contentDig/rule.png"/>
                   </div>
 <!--                右边-->
@@ -29,8 +29,8 @@
                     </div>
 <!--                  卡牌数量-->
                     <div class="one-right-num">
-                      <span>质押卡牌数量：4</span>
-                      <span>质押战力值：299618</span>
+                      <span>质押卡牌数量：{{myStakingNFTAmount}}</span>
+                      <span>质押战力值：{{myStakingPower}}</span>
                     </div>
 <!--                    每天产出-->
                     <div class="one-right-bit">
@@ -38,11 +38,11 @@
                       <div class="bit-right-num">
                         <div class="right-num">
                           <div class="num-title">矿池每天产出</div>
-                          <div class="num-text">166,666TMK</div>
+                          <div class="num-text">{{perDayReward}}TMK</div>
                         </div>
                         <div class="right-num right-num-s">
                           <div class="num-title">可提取的奖励</div>
-                          <div class="num-text">825,643TMK</div>
+                          <div class="num-text">{{myReward}}TMK</div>
                         </div>
                         <div class="right-num right-num-ss">
                           <div class="num-title">APY</div>
@@ -51,9 +51,9 @@
                       </div>
 <!--                      按钮-->
                       <div class="bit-right-btn">
-                        <img src="../assect/contentDig/approve.png"/>
-                        <img src="../assect/contentDig/haverst.png"/>
-                        <img src="../assect/contentDig/withdraw.png"/>
+                        <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>
+                        <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>
+                        <img @click="actionWithdraw" src="../assect/contentDig/withdraw.png"/>
                         <img src="../assect/contentDig/exit.png"/>
                       </div>
                     </div>
@@ -333,10 +333,263 @@
           </div>
         </div>
       </template>
-
       <script>
+      import '../css/base.less'
+      import config from "@/config/base";
+
+      const tokenAbi = require('@/config/token_abi.json');
+      const saleNFTAbi = require('@/config/saleNFTABI.json');
+      const NFTAbi = require('@/config/nftABI.json');
+      const NFTStakingAbi = require('@/config/nftStakingRewardABI.json');
+      const Decimal = require('decimal.js')
       export default {
-      name: "ContentDig"
+        name: "ContentDig",
+        data() {
+          return {
+            husdApproved: false,
+            approveHash: '',
+            approveHUSDHash: '',
+            inviteAddress: '0x0000000000000000000000000000000000000001',
+            myNFTCount:0,
+            nftAreadySale:0,
+            perDayReward:0,
+            myReward:0,
+            totalStakingNFTAmount:0,
+            totalStakingPower:0,
+            myStakingNFTAmount:0,
+            myStakingPower:0,
+            rewardAddress:''
+
+          }
+        },
+        mounted() {
+          this.getData()
+        },
+        methods: {
+          async getRewardAddress(){
+            let v = this
+            this.rewardAddress = await v.action.sortAddress(config.nftReward)
+          },
+          async getMyUserInfo(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const amount  =  await contract.methods.userInfo(0,local_address).call();
+            console.log(`myuserinfo`,amount)
+            this.myStakingPower = amount['amount']
+          },
+          async getMyDeposit(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const amount  =  await contract.methods.balanceOfNFT(0,local_address).call();
+            console.log(`getMyDeposit`,amount)
+            this.myStakingNFTAmount = amount
+          },
+          async getAllDeposit(){
+            let v = this
+            let reward_address = config.nftReward
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const amount  =  await contract.methods.poolInfo(0).call();
+            console.log(`getAllDeposit`,amount)
+            this.totalStakingNFTAmount = amount['totalStakingNFTAmount']
+            this.totalStakingPower = amount['lpSupply']
+          },
+          async getMyReward(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const amount  =  await contract.methods.pendingSushi(0,local_address).call();
+            console.log(`myReward`,amount)
+            try{
+            this.myReward = new Decimal(amount).div(Math.pow(10,18)).toFixed()
+            }catch (ex){
+              this.myReward = 0
+            }
+          },
+          async getPerDayReward(){
+            let v = this
+            let reward_address = config.nftReward
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const amount  =  await contract.methods.sushiPerBlock().call();
+            console.log(`perDayAmount`,amount)
+            this.perDayReward = new Decimal(amount).div(Math.pow(10,18)).mul(24*60*20).toFixed()
+          },
+          async actionWithdraw(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const saleData = contract.methods.withdraw(0).encodeABI();
+            console.log('saledata', saleData)
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: reward_address,
+              value: 0,
+              data: saleData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.$toast('Transaction has send please wait result')
+                  v.approveHash = hash;
+                  v.timer = setInterval(v.checkApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
+          },
+          async actionDeposit(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const saleData = contract.methods.deposit(0,[21,22]).encodeABI();
+            console.log('saledata', saleData)
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: reward_address,
+              value: 0,
+              data: saleData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.$toast('Transaction has send please wait result')
+                  v.approveHash = hash;
+                  v.timer = setInterval(v.checkApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
+          },
+          async getNFTSaleAmount(){
+            let v = this
+            //approve
+            let contract = new v.myWeb3.eth.Contract(saleNFTAbi, config.sale)
+            let count = await contract.methods.nftAreadySale().call();
+            this.nftAreadySale = count
+          },
+          async getMyNFT(){
+            let v = this
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTAbi, config.nft)
+            let count = await contract.methods.balanceOf(local_address).call();
+            this.myNFTCount = count
+          },
+          async actionBuy(num){
+            let v = this
+            let reward_address = config.sale
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(saleNFTAbi, reward_address)
+            const saleData = contract.methods.buyGftUseUSDT_user(num, this.inviteAddress).encodeABI();
+            console.log('saledata', saleData)
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: reward_address,
+              value: 0,
+              data: saleData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.$toast('Transaction has send please wait result')
+                  v.approveHash = hash;
+                  v.timer = setInterval(v.checkApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
+          },
+          async actionHUSDApprove() {
+            let v = this
+            let reward_address = config.nftReward
+            let token_address = config.nft
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTAbi, token_address)
+            const approveData = contract.methods.setApprovalForAll(reward_address, '10000000000000000000000000').encodeABI();
+            console.log('approvedata', approveData)
+
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: token_address,
+              value: 0,
+              data: approveData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.approveHUSDHash = hash;
+                  v.timerHUSD = setInterval(v.checkHUSDApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
+          },
+          async checkHUSDApproved() {
+            console.log(`check approving`)
+            let v = this
+            var local_address = await v.action.getAddress()
+            let contract = new v.myWeb3.eth.Contract(NFTAbi, config.nft)
+            contract.methods.isApprovedForAll(local_address, config.nftReward).call(function (error, result) {
+              if (result) {
+                v.husdApproved = true;
+                //清空检测事件
+                v.approveHUSDHash = '';
+                clearInterval(v.timerHUSD);
+              } else {
+                v.husdApproved = false;
+              }
+            });
+          },
+          goPack() {
+            this.$router.push('pack')
+          },
+          async getData() {
+            this.checkHUSDApproved()
+            this.getMyNFT()
+            this.getNFTSaleAmount()
+            this.getPerDayReward()
+            this.getMyReward()
+            this.getAllDeposit()
+            this.getMyDeposit()
+            this.getMyUserInfo()
+            this.getRewardAddress()
+          }
+        }
       }
       </script>
 
