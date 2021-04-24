@@ -181,21 +181,51 @@
           position: relative;
         }
 
+        .middle-info-cards {
+          opacity: 0.6;
+        }
+
         .middle-info-moncard {
           width: 154px;
           height: 233px;
           position: absolute;
           left: 0;
           top: 0;
+          z-index: 9;
+        }
+        .middle-info-moncards {
+          opacity: 0.5;
+        }
+
+        .middle-info-borders {
+          opacity: 0.5;
         }
 
         .middle-info-border {
           width: 154px;
           height: 233px;
+          position: relative;
+          z-index: 99;
+          cursor: pointer;
+        }
+
+        .middle-info-right {
+          width: 60px;
+          height: 57px;
+          position: absolute;
+          left: 30%;
+          top: 40%;
+          z-index: 100;
+          cursor: pointer;
         }
 
 
         @media (max-width: 960px) {
+
+          .middle-info-right {
+            width: 30px;
+            height: 30px;
+          }
 
           .middle-info-border {
             width: 78px;

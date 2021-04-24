@@ -53,8 +53,8 @@
                       <div class="bit-right-btn">
                         <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>
                         <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>
-                        <img @click="actionWithdraw" src="../assect/contentDig/withdraw.png"/>
-                        <img src="../assect/contentDig/exit.png"/>
+                        <img @click="actionGetReward" src="../assect/contentDig/withdraw.png"/>
+                        <img @click="actionWithdraw" src="../assect/contentDig/exit.png"/>
                       </div>
                     </div>
                 </div>
@@ -355,12 +355,13 @@
           </div>
 
 <!--          弹窗-->
-          <div  class="dialog">
+          <div  v-show="showPledge" class="dialog">
             <div class="ple">
               <div class="ple-container">
                 <!--              上部分-->
                 <div class="ple-one-top">
                   <img src="../assect/pack/text.png"/>
+                  <div @click="closeDialog" class="ple-error"></div>
                 </div>
                 <!--          内容-->
                 <div class="ple-bottom">
@@ -415,21 +416,66 @@
 
                   <!--            下部分-->
                   <div class="ple-green">
-                    <!--              <div class="green-info"></div>-->
-                    <div class="green-infos">
-                      <img src="../assect/pack/right.png"/>
+
+                    <div class="ple-green-content">
+<!--                      <div  class="green-info"></div>-->
+                      <div v-if="showCard" @click="showCard=!showCard" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard=!showCard" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+<!--                      <div v-else @click="showCard=!showCard" class="green-infos">-->
+<!--                        -->
+<!--                      </div>-->
                     </div>
-                    <div class="green-infos">
-                      <img src="../assect/pack/right.png"/>
+
+                    <div class="ple-green-content">
+                      <div v-if="showCard2" @click="showCard2=!showCard2" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard2=!showCard2" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
                     </div>
-                    <div class="green-infos">
-                      <img src="../assect/pack/right.png"/>
+                    <div class="ple-green-content">
+                      <div v-if="showCard3" @click="showCard3=!showCard3" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard3=!showCard3" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
                     </div>
-                    <div class="green-infos">
-                      <img src="../assect/pack/right.png"/>
+                    <div class="ple-green-content">
+                      <div v-if="showCard4" @click="showCard4=!showCard4" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard4=!showCard4" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
                     </div>
-                    <div class="green-infos">
-                      <img src="../assect/pack/right.png"/>
+                    <div class="ple-green-content">
+                      <div v-if="showCard5" @click="showCard5=!showCard5" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard5=!showCard5" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
                     </div>
 
                   </div>
@@ -452,9 +498,8 @@
       <script>
       import '../css/base.less'
       import config from "@/config/base";
-      import ContentPledge from "@/components/ContentPledge";
 
-      const tokenAbi = require('@/config/token_abi.json');
+      // const tokenAbi = require('@/config/token_abi.json');
       const saleNFTAbi = require('@/config/saleNFTABI.json');
       const NFTAbi = require('@/config/nftABI.json');
       const NFTStakingAbi = require('@/config/nftStakingRewardABI.json');
@@ -464,6 +509,12 @@
         components: {},
         data() {
           return {
+            showCard:true, //卡片选择
+            showCard2:true,
+            showCard3:true,
+            showCard4:true,
+            showCard5:true,
+            showPledge:true,
             husdApproved: false,
             approveHash: '',
             approveHUSDHash: '',
@@ -513,6 +564,9 @@
           this.getData()
         },
         methods: {
+          closeDialog() {
+            this.showPledge=false
+          },
           actionAll(item) {
             this.all=item.name
             this.showAll=false
@@ -524,8 +578,38 @@
           },
           actionSort(item) {
             console.log(item.name)
-            this.sort=item.name
-            this.showSort=false
+            this.sort = item.name
+            this.showSort = false
+          },
+          async actionWithdraw(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const saleData = contract.methods.withdraw(0).encodeABI();
+            console.log('saledata', saleData)
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: reward_address,
+              value: 0,
+              data: saleData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.$toast('Transaction has send please wait result')
+                  v.approveHash = hash;
+                  v.timer = setInterval(v.checkApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
           },
           async getRewardAddress(){
             let v = this
@@ -584,13 +668,13 @@
             console.log(`perDayAmount`,amount)
             this.perDayReward = new Decimal(amount).div(Math.pow(10,18)).mul(24*60*20).toFixed()
           },
-          async actionWithdraw(){
+          async actionGetReward(){
             let v = this
             let reward_address = config.nftReward
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
-            const saleData = contract.methods.withdraw(0).encodeABI();
+            const saleData = contract.methods.getReward(0).encodeABI();
             console.log('saledata', saleData)
             await v.myWeb3.eth.sendTransaction({
               from: local_address,
@@ -759,7 +843,8 @@
         z-index: 999;
         width: 100%;
         height: 100%;
-        margin-top: 70px;
+        margin-top: 100px;
+
       }
 
       .ple-container {
@@ -782,11 +867,23 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
+        position: relative;
         img {
           margin-top: -20px;
           width: 134px;
           height: 55px;
         }
+      }
+
+      .ple-error {
+        cursor: pointer;
+        width: 32px;
+        height: 33px;
+        background: url("../assect/dialog/error.png")no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+        top: -10px;
       }
 
       .ple-bottom {
@@ -996,7 +1093,17 @@
           width: 100%;
         }
         @media (max-width: 960px) {
+          //弹窗
+          .dialog {
+            //margin-top: 81px;
+            padding-top: 50px;
+          }
 
+          .ple {
+            overflow: scroll;
+            padding-bottom: 100px;
+            margin-top: 50px;
+          }
 
           .select-top-title {
             font-size: 12px;
@@ -1019,11 +1126,6 @@
             margin-left: 10px;
           }
 
-
-          .ple {
-            height: 1223px;
-          }
-
           .ple-one-top {
             width: 80%;
           }
@@ -1037,7 +1139,7 @@
 
           .ple-bottom {
             width: 80%;
-            height: 900px;
+            height: 700px;
           }
 
           .tab-line {
@@ -1046,7 +1148,17 @@
 
           .ple-green {
             flex-wrap: wrap;
-            margin-top: 0;
+            margin-top: 20px;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .ple-green-content {
+            width: 50%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .green-info {
