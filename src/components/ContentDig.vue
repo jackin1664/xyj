@@ -65,24 +65,24 @@
             </div>
 
 <!--            锁定奖励-->
-<!--            <div class="dig-middle">-->
-<!--              &lt;!&ndash;              上部分&ndash;&gt;-->
-<!--              <div class="dig-one-top">-->
-<!--                <img src="../assect/contentDig/nft-dig.png"/>-->
-<!--              </div>-->
+            <div class="dig-middle">
+              <!--              上部分-->
+              <div class="dig-one-top">
+                <img src="../assect/contentDig/nft-dig.png"/>
+              </div>
 
-<!--              <div class="dig-middle-content">-->
-<!--                <div class="middle-content-info">-->
-<!--                  <div class="mid-info-title">奖励锁定数量</div>-->
-<!--                  <div class="mid-info-num">1000TMK</div>-->
-<!--                </div>-->
-<!--                <div class="middle-content-info">-->
-<!--                  <div class="mid-info-title">奖励锁定数量</div>-->
-<!--                  <div class="mid-info-num">1000TMK</div>-->
-<!--                  <div class="yellow2-btn mid-btn">领取</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
+              <div class="dig-middle-content">
+                <div class="middle-content-info">
+                  <div class="mid-info-title">奖励锁定数量</div>
+                  <div class="mid-info-num">1000TMK</div>
+                </div>
+                <div class="middle-content-info">
+                  <div class="mid-info-title">奖励锁定数量</div>
+                  <div class="mid-info-num">1000TMK</div>
+                  <div class="yellow2-btn mid-btn">领取</div>
+                </div>
+              </div>
+            </div>
 
 
 <!--                 第二部分-->
