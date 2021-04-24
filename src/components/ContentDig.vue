@@ -53,8 +53,8 @@
                       <div class="bit-right-btn">
                         <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>
                         <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>
-                        <img @click="actionWithdraw" src="../assect/contentDig/withdraw.png"/>
-                        <img src="../assect/contentDig/exit.png"/>
+                        <img @click="actionGetReward" src="../assect/contentDig/withdraw.png"/>
+                        <img @click="actionWithdraw" src="../assect/contentDig/exit.png"/>
                       </div>
                     </div>
                 </div>
@@ -389,6 +389,36 @@
           this.getData()
         },
         methods: {
+          async actionWithdraw(){
+            let v = this
+            let reward_address = config.nftReward
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
+            const saleData = contract.methods.withdraw(0).encodeABI();
+            console.log('saledata', saleData)
+            await v.myWeb3.eth.sendTransaction({
+              from: local_address,
+              to: reward_address,
+              value: 0,
+              data: saleData
+            })
+                .on('transactionHash', function (hash) {
+                  //hash
+                  console.log(`hash: ` + hash)
+                  v.$toast('Transaction has send please wait result')
+                  v.approveHash = hash;
+                  v.timer = setInterval(v.checkApproved, 1000);
+                  //server order
+                }).on('receipt', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                }).on('error', function (receipt) {
+                  //receipt
+                  console.log(receipt)
+                })
+            this.getData()
+          },
           async getRewardAddress(){
             let v = this
             this.rewardAddress = await v.action.sortAddress(config.nftReward)
@@ -446,7 +476,7 @@
             console.log(`perDayAmount`,amount)
             this.perDayReward = new Decimal(amount).div(Math.pow(10,18)).mul(24*60*20).toFixed()
           },
-          async actionWithdraw(){
+          async actionGetReward(){
             let v = this
             let reward_address = config.nftReward
             var local_address = await v.action.getAddress()
