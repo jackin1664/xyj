@@ -51,10 +51,13 @@
                       </div>
 <!--                      按钮-->
                       <div class="bit-right-btn">
-                        <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>
-                        <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>
-                        <img @click="actionGetReward" src="../assect/contentDig/withdraw.png"/>
-                        <img @click="actionWithdraw" src="../assect/contentDig/exit.png"/>
+                        <div @click="openDialog"  class="yellow-btn">质押</div>
+                        <div @click="actionGetReward"  class="yellow-btn">提取奖励</div>
+                        <div @click="actionWithdraw"  class="yellow-btn">取消质押</div>
+<!--                        <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>-->
+<!--                        <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>-->
+<!--                        <img @click="actionGetReward" src="../assect/contentDig/withdraw.png"/>-->
+<!--                        <img @click="actionWithdraw" src="../assect/contentDig/exit.png"/>-->
                       </div>
                     </div>
                 </div>
@@ -355,7 +358,7 @@
           </div>
 
 <!--          弹窗-->
-          <div  v-show="showPledge" class="dialog">
+          <div v-show="showPledge" class="dialog">
             <div class="ple">
               <div class="ple-container">
                 <!--              上部分-->
@@ -365,134 +368,28 @@
                 </div>
                 <!--          内容-->
                 <div class="ple-bottom">
-                  <!--              上部分-->
-                  <div class="ple-select">
-                    <div class="ple-select-left">
-                      <div class="select-info">
-                        <div class="select-info">
-                          <div @click="showType=!showType" class="select-info-top">
-                            <div class="select-top-title">{{type}}</div>
-                            <img src="../assect/pack/arrow-bottom.png"/>
-                          </div>
-                          <img class="tab-line" src="../assect/pack/line.png"/>
-                          <div v-show="showType" class="select-tab">
-                            <div v-for="(item,index) in tabType" class="tab-info" :key="index" @click="actionType(item)">
-                              <span>{{item.name}}</span>
-                              <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="select-info select-infos">
-                        <div @click="showSort=!showSort" class="select-info-top">
-                          <div class="select-top-title">{{sort}}</div>
-                          <img src="../assect/pack/arrow-bottom.png"/>
-                        </div>
-
-                        <img class="tab-line" src="../assect/pack/line.png"/>
-                        <div v-show="showSort" class="select-tab">
-                          <div v-for="(item,index) in tab" class="tab-info" :key="index" @click="actionSort(item)">
-                            <span>{{item.name}}</span>
-                            <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
-                          </div>
-                        </div>
-                      </div>
-                      <div class="select-info select-infoss">
-                        <div @click="showAll=!showAll" class="select-info-top">
-                          <div class="select-top-title">{{all}}</div>
-                          <img src="../assect/pack/arrow-bottom.png"/>
-                        </div>
-
-                        <img class="tab-line" src="../assect/pack/line.png"/>
-                        <div v-show="showAll" class="select-tab">
-                          <div v-for="(item,index) in tabAll" class="tab-info" :key="index" @click="actionAll(item)">
-                            <span>{{item.name}}</span>
-                            <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                   <!--            下部分-->
                   <div class="ple-green">
-
-                    <div class="ple-green-content">
-<!--                      <div  class="green-info"></div>-->
-                      <div v-if="showCard" @click="showCard=!showCard" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                    <div v-for="item in cards" :key="item.thirdId" class="ple-green-content">
+                      <div v-if="selectCards.indexOf(item.tokenId)< 0" @click="selectCardID(item.tokenId)" class="middle-info-card">
+                        <img :src="item.img" class="middle-info-moncard"/>
                         <img src="../assect/content/border-green.png" class="middle-info-border"/>
                       </div>
-                      <div v-else @click="showCard=!showCard" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
-                        <img src="../assect/pack/right.png" class="middle-info-right"/>
-                      </div>
-<!--                      <div v-else @click="showCard=!showCard" class="green-infos">-->
-<!--                        -->
-<!--                      </div>-->
-                    </div>
-
-                    <div class="ple-green-content">
-                      <div v-if="showCard2" @click="showCard2=!showCard2" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
-                      </div>
-                      <div v-else @click="showCard2=!showCard2" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                      <div v-else class="middle-info-card" @click="selectCardID(item.tokenId)">
+                        <img :src="item.img" class="middle-info-moncard middle-info-moncards"/>
                         <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
                         <img src="../assect/pack/right.png" class="middle-info-right"/>
                       </div>
                     </div>
-                    <div class="ple-green-content">
-                      <div v-if="showCard3" @click="showCard3=!showCard3" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
-                      </div>
-                      <div v-else @click="showCard3=!showCard3" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
-                        <img src="../assect/pack/right.png" class="middle-info-right"/>
-                      </div>
-                    </div>
-                    <div class="ple-green-content">
-                      <div v-if="showCard4" @click="showCard4=!showCard4" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
-                      </div>
-                      <div v-else @click="showCard4=!showCard4" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
-                        <img src="../assect/pack/right.png" class="middle-info-right"/>
-                      </div>
-                    </div>
-                    <div class="ple-green-content">
-                      <div v-if="showCard5" @click="showCard5=!showCard5" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
-                      </div>
-                      <div v-else @click="showCard5=!showCard5" class="middle-info-card">
-                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
-                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
-                        <img src="../assect/pack/right.png" class="middle-info-right"/>
-                      </div>
-                    </div>
-
-                  </div>
-                  <div class="ple-green-text">
-                    已选中，最多可选1张
                   </div>
                   <div class="ple-btn">
-                    <div class="yellow-btn" >合成</div>
-                    <span></span>
-                    <div class="zhuan-btn">质押</div>
+                    <div v-if="!husdApproved" @click="actionHUSDApprove" class="yellow-btn">授权</div>
+                    <div v-if="husdApproved" @click="actionDeposit()" class="yellow-btn">质押</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </template>
       <script>
@@ -514,7 +411,7 @@
             showCard3:true,
             showCard4:true,
             showCard5:true,
-            showPledge:true,
+            showPledge:false,
             husdApproved: false,
             approveHash: '',
             approveHUSDHash: '',
@@ -528,6 +425,7 @@
             myStakingNFTAmount:0,
             myStakingPower:0,
             rewardAddress:'',
+            cards: [],
             showSort:false,//排序显隐
             showType:false,//类型显隐
             showAll:false,//全选
@@ -558,14 +456,79 @@
                 name:'卡片',
               }
             ],
+            imgs: {
+              "1": require('../assect/cards/1.png'),
+              "2": require('../assect/cards/2.png'),
+              "3": require('../assect/cards/3.png'),
+              "4": require('../assect/cards/4.png'),
+              "5": require('../assect/cards/5.png'),
+              "6": require('../assect/cards/6.png'),
+              "7": require('../assect/cards/7.png'),
+              "8": require('../assect/cards/8.png'),
+              "9": require('../assect/cards/9.png'),
+              "10": require('../assect/cards/10.png'),
+              "11": require('../assect/cards/11.png'),
+              "12": require('../assect/cards/12.png'),
+              "13": require('../assect/cards/13.png'),
+              "14": require('../assect/cards/14.png'),
+              "15": require('../assect/cards/15.png'),
+              "16": require('../assect/cards/16.png'),
+              "17": require('../assect/cards/17.png'),
+              "18": require('../assect/cards/18.png'),
+              "19": require('../assect/cards/19.png'),
+              "20": require('../assect/cards/20.png'),
+              "21": require('../assect/cards/21.png'),
+              "22": require('../assect/cards/22.png'),
+              "23": require('../assect/cards/23.png'),
+              "24": require('../assect/cards/24.png'),
+              "25": require('../assect/cards/25.png'),
+              "26": require('../assect/cards/26.png'),
+              "27": require('../assect/cards/27.png'),
+              "28": require('../assect/cards/28.png'),
+              "29": require('../assect/cards/29.png'),
+              "30": require('../assect/cards/30.png'),
+              "31": require('../assect/cards/31.png'),
+              "32": require('../assect/cards/32.png'),
+              "33": require('../assect/cards/33.png'),
+              "34": require('../assect/cards/34.png'),
+              "35": require('../assect/cards/35.png'),
+              "36": require('../assect/cards/36.png'),
+              "5036": require('../assect/cards/5036.png'),
+              "10036": require('../assect/cards/10036.png'),
+            },
+            selectCards:[]
           }
         },
         mounted() {
           this.getData()
         },
         methods: {
+          openDialog(){
+            this.getMyCard()
+            this.showPledge=true
+          },
           closeDialog() {
             this.showPledge=false
+          },
+          async selectCardID(cardId){
+            let index = this.selectCards.indexOf(cardId);
+            if(index >= 0){
+              this.selectCards.splice(index,1);
+            }else{
+              this.selectCards.push(cardId)
+            }
+          },
+          async getMyCard() {
+            let v = this
+            var local_address = await v.action.getAddress()
+            let cards = await this.$http.getyMyCard({address: local_address})
+            cards = cards.data.data.card
+            for (let it of cards) {
+              it.img = this.imgs[it.thirdId.toString()]
+              it.name = config.cards.find(a => a.type == it.thirdId).name
+            }
+            this.cards = cards
+            console.log('my weapons result', cards)
           },
           actionAll(item) {
             this.all=item.name
@@ -698,13 +661,18 @@
                 })
             this.getData()
           },
+          //质押
           async actionDeposit(){
+            if(this.selectCards.length <= 0){
+              this.$toast('请选择质押的卡牌')
+              return false
+            }
             let v = this
             let reward_address = config.nftReward
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
-            const saleData = contract.methods.deposit(0,[4,5]).encodeABI();
+            const saleData = contract.methods.deposit(0,this.selectCards).encodeABI();
             console.log('saledata', saleData)
             await v.myWeb3.eth.sendTransaction({
               from: local_address,
@@ -726,6 +694,7 @@
                   //receipt
                   console.log(receipt)
                 })
+            this.showPledge = false
             this.getData()
           },
           async getNFTSaleAmount(){
@@ -833,6 +802,7 @@
             this.getMyDeposit()
             this.getMyUserInfo()
             this.getRewardAddress()
+            this.getMyCard()
           }
         }
       }
@@ -1034,7 +1004,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         width: 90%;
+        max-height: 400px;
+        overflow-y: auto;
       }
 
       .green-info {
