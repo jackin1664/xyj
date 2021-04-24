@@ -452,7 +452,7 @@
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
-            const saleData = contract.methods.withdraw(0).encodeABI();
+            const saleData = contract.methods.getReward(0).encodeABI();
             console.log('saledata', saleData)
             await v.myWeb3.eth.sendTransaction({
               from: local_address,
