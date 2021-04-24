@@ -1161,7 +1161,8 @@
       .dig {
         position: relative;
         width: 100%;
-        height: 1621px;
+        //height: 1621px;
+        padding-bottom: 100px;
         background-image: url('../assect/content/bg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -1552,7 +1553,7 @@
 
       @media (max-width: 960px) {
         .dig {
-          height: 3200px;
+          //height: 3200px;
         }
         .dig-line {
           span {

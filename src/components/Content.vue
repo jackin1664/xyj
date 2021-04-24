@@ -316,7 +316,8 @@ export default {
 .content {
   position: relative;
   width: 100%;
-  height: 100%;
+  //height: 100%;
+  padding-bottom: 100px;
   background-image: url('../assect/content/bg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -608,6 +609,7 @@ export default {
 
   .content {
     //height: 7600px;
+    padding-bottom: 50px;
   }
 
   .content-top {

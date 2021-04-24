@@ -243,7 +243,8 @@ export default {
   position: relative;
   //top: -150px;
   width: 100%;
-  height: 100%;
+  //height: 100%;
+  padding-bottom: 100px;
   background-image: url('../assect/content/bg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;

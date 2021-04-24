@@ -310,13 +310,13 @@
 
         .pack-bottom {
           width: 988px;
-          height: 652px;
+          //height: 652px;
           background: url("../assect/pack/bg.png")no-repeat;
           background-size: 100% 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-bottom: 47px;
+          padding-bottom: 80px;
         }
 
 
@@ -481,7 +481,7 @@
           }
           .pack-bottom {
             width: 80%;
-            height: 983px;
+            //height: 983px;
           }
           .tab-line {
             width: 80px;
