@@ -177,7 +177,7 @@
       name: "ContentPack",
       data () {
         return {
-          detailThree:true,
+          detailThree:false,
           detailTwo: false,//
           detail:false,
           sort:'排序',
@@ -408,18 +408,19 @@
           display: flex;
           flex-direction: row;
           align-items: flex-start;
-          justify-content: flex-start;
+          justify-content: space-around;
           flex-wrap: wrap;
           width: 90%;
         }
 
         .bottom-info {
+          width: 45%;
           cursor: pointer;
           margin-top: 45px;
           display: flex;
           flex-direction: row;
           align-items: center;
-          height: 45%;
+          //height: 45%;
           img {
             width: 154px;
             height: 233px;
@@ -427,10 +428,10 @@
         }
 
         .bottom-infos {
-          margin-left: 170px;
+          //margin-left: 170px;
         }
         .bottom-infoss {
-          margin-left: 195px;
+          //margin-left: 195px;
         }
 
         .bottom-info-right {
@@ -504,7 +505,8 @@
             }
           }
           .bottom-info {
-            height: 25%;
+            //height: 25%;
+            width: 100%;
           }
           .bottom-infos {
             margin-left: 0;
