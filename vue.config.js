@@ -8,7 +8,7 @@ module.exports = {
     devServer: {
         proxy: {  //配置跨域
             '/api': {
-                target: 'http://192.168.50.13:8094/',  //这里后台的地址模拟的;应该填写你们真实的后台接口
+                target: 'http://192.168.0.106:8094/',  //这里后台的地址模拟的;应该填写你们真实的后台接口
                 ws: true,
                 changOrigin: true,  //允许跨域
                 pathRewrite: {

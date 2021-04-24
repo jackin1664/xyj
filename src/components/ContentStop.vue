@@ -14,8 +14,8 @@
           <div class="stop-bottom-content">
             <div class="stop-bottom-info">
               <div class="middle-info-card">
-                <img src="../assect/stop/tao.png" class="middle-info-border"/>
-                <img src="../assect/stop/boder.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/tao.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/boder.png" class="middle-info-border"/>
               </div>
               <div class="stop-right-info">
                 <div class="right-info">
@@ -23,11 +23,11 @@
                   <input v-model="amount[1]" class="right-info-num"/>
                 </div>
                 <div class="right-info">
-                  <span class="right-info-neng">提升比例：{{ info[0][0] }}%</span>
+                  <span class="right-info-neng">提升比例：{{ info[1][0] }}%</span>
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[1][0] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][0] }}TMK</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -38,8 +38,8 @@
             </div>
             <div class="stop-bottom-info">
               <div class="middle-info-card">
-                <img src="../assect/stop/dan.png" class="middle-info-border"/>
-                <img src="../assect/stop/boder.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/dan.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/boder.png" class="middle-info-border"/>
               </div>
               <!--                      <div class="stop-bottom-box">蟠桃</div>-->
               <div class="stop-right-info">
@@ -48,11 +48,11 @@
                   <input v-model="amount[2]" class="right-info-num"/>
                 </div>
                 <div class="right-info">
-                  <span class="right-info-neng">提升比例：{{ info[0][2] }}%</span>
+                  <span class="right-info-neng">提升比例：{{ info[1][1] }}%</span>
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[1][2] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][1] }}TMK</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -63,8 +63,8 @@
             </div>
             <div class="stop-bottom-info">
               <div class="middle-info-card">
-                <img src="../assect/stop/ma.png" class="middle-info-border"/>
-                <img src="../assect/stop/boder.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/ma.png" class="middle-info-moncard"/>
+                <img src="../assect/stop/boder.png" class="middle-info-border"/>
               </div>
               <!--                      <div class="stop-bottom-box">蟠桃</div>-->
               <div class="stop-right-info">
@@ -73,11 +73,11 @@
                   <input v-model="amount[3]" class="right-info-num"/>
                 </div>
                 <div class="right-info">
-                  <span class="right-info-neng">提升比例：{{ info[0][1] }}%</span>
+                  <span class="right-info-neng">提升比例：{{ info[1][2] }}%</span>
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[1][1] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][2] }}TMK</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -95,22 +95,24 @@
         <div class="stop-bottom">
           <div class="stop-bottom-content">
             <div v-for="item in weapon" :key="item.type" class="stop-bottom-info">
-              <div class="stop-bottom-box">{{item.name}}</div>
+              <div class="stop-bottom-box">{{ item.name }}</div>
               <div class="stop-right-info">
                 <div class="right-info">
                   <span class="right-info-title">数量</span>
                   <div class="right-info-num">1</div>
                 </div>
                 <div class="right-info">
-                  <span class="right-info-neng">能力值：{{item.power}}</span>
+                  <span class="right-info-neng">能力值：{{ item.power }}</span>
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{item.price}}TMK</div>
+                  <div class="right-info-tmk">{{ item.price }}TMK</div>
                 </div>
                 <div class="right-info">
                   <div v-if="item.sale == 0 && !husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
-                  <div v-if=" item.sale == 0 && husdApproved" @click="actionBuyWeapon(item.type)" class="right-info-buy">购买</div>
+                  <div v-if=" item.sale == 0 && husdApproved" @click="actionBuyWeapon(item.type)"
+                       class="right-info-buy">购买
+                  </div>
                   <div v-if="item.sale == 1" class="right-info-buy">已售出</div>
                 </div>
               </div>
@@ -148,6 +150,37 @@
       </div>
 
     </div>
+    <div v-show="showPledge" class="dialog">
+      <div class="ple">
+        <div class="ple-container">
+          <!--              上部分-->
+          <div class="ple-one-top">
+            <img src="../assect/pack/text.png"/>
+            <div @click="closeDialogWeapon" class="ple-error"></div>
+          </div>
+          <!--          内容-->
+          <div class="ple-bottom">
+            <!--            下部分-->
+            <div class="ple-green">
+              <div v-for="item in cards" :key="item.thirdId" class="ple-green-content">
+                <div v-if="item.tokenId != selectCard" @click="selectCardID(item.tokenId)" class="middle-info-card">
+                  <img :src="item.img" class="middle-info-moncard"/>
+                  <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                </div>
+                <div v-else class="middle-info-card" @click="selectCardID(item.tokenId)">
+                  <img :src="item.img" class="middle-info-moncard middle-info-moncards"/>
+                  <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                  <img src="../assect/pack/right.png" class="middle-info-right"/>
+                </div>
+              </div>
+            </div>
+            <div class="ple-btn">
+              <div @click="doBuy" class="yellow-btn">购买</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -162,6 +195,7 @@ export default {
   name: "ContentStop",
   data() {
     return {
+      showPledge: false,
       Config: config,
       husdApproved: false,
       approveHash: '',
@@ -169,27 +203,85 @@ export default {
       detail: false,
       info: [[], []],
       amount: [0, 0, 0, 0],
-      weapon: []
+      weapon: [],
+      cards: [],
+      selectCard: 0,
+      selectShopID: 0,
+      imgs: {
+        "1": require('../assect/cards/1.png'),
+        "2": require('../assect/cards/2.png'),
+        "3": require('../assect/cards/3.png'),
+        "4": require('../assect/cards/4.png'),
+        "5": require('../assect/cards/5.png'),
+        "6": require('../assect/cards/6.png'),
+        "7": require('../assect/cards/7.png'),
+        "8": require('../assect/cards/8.png'),
+        "9": require('../assect/cards/9.png'),
+        "10": require('../assect/cards/10.png'),
+        "11": require('../assect/cards/11.png'),
+        "12": require('../assect/cards/12.png'),
+        "13": require('../assect/cards/13.png'),
+        "14": require('../assect/cards/14.png'),
+        "15": require('../assect/cards/15.png'),
+        "16": require('../assect/cards/16.png'),
+        "17": require('../assect/cards/17.png'),
+        "18": require('../assect/cards/18.png'),
+        "19": require('../assect/cards/19.png'),
+        "20": require('../assect/cards/20.png'),
+        "21": require('../assect/cards/21.png'),
+        "22": require('../assect/cards/22.png'),
+        "23": require('../assect/cards/23.png'),
+        "24": require('../assect/cards/24.png'),
+        "25": require('../assect/cards/25.png'),
+        "26": require('../assect/cards/26.png'),
+        "27": require('../assect/cards/27.png'),
+        "28": require('../assect/cards/28.png'),
+        "29": require('../assect/cards/29.png'),
+        "30": require('../assect/cards/30.png'),
+        "31": require('../assect/cards/31.png'),
+        "32": require('../assect/cards/32.png'),
+        "33": require('../assect/cards/33.png'),
+        "34": require('../assect/cards/34.png'),
+        "35": require('../assect/cards/35.png'),
+        "36": require('../assect/cards/36.png'),
+        "5036": require('../assect/cards/5036.png'),
+        "10036": require('../assect/cards/10036.png'),
+      },
     }
   },
   mounted() {
     this.getData()
   },
   methods: {
+    async selectCardID(tokenID) {
+      this.selectCard = tokenID
+    },
+    closeDialogWeapon() {
+      this.showPledge = false
+    },
     //关闭弹窗
     closeDialog() {
       this.detail = false
     },
-    async actionBuy(num) {
+    async getMyCard() {
+      let v = this
+      var local_address = await v.action.getAddress()
+      let cards = await this.$http.getyMyCard({address: local_address})
+      cards = cards.data.data.card
+      for (let it of cards) {
+        it.img = this.imgs[it.thirdId.toString()]
+        it.name = config.cards.find(a => a.type == it.thirdId).name
+      }
+      this.cards = cards
+      console.log('my weapons result', cards)
+    },
+    async doBuy() {
       let v = this
       var local_address = await v.action.getAddress()
       let reward_address = config.market
-      let amount = this.amount[num]
-      if(amount == 0){
-        this.$toast('请输入购买数量')
-      }
+      let amount = this.amount[this.selectShopID]
       let contract = new v.myWeb3.eth.Contract(marketAbi, config.market)
-      const saleData = contract.methods.buyTreasure(2, num, amount).encodeABI();
+      const saleData = contract.methods.buyTreasure(this.selectCard, this.selectShopID, amount).encodeABI();
       console.log('saledata', saleData)
       await v.myWeb3.eth.sendTransaction({
         from: local_address,
@@ -211,7 +303,18 @@ export default {
             //receipt
             console.log(receipt)
           })
+      this.showPledge = false
+      v.$toast('购买成功')
       this.getData()
+    },
+    async actionBuy(num) {
+      let amount = this.amount[num]
+      if (amount == 0) {
+        this.$toast('请输入购买数量')
+        return false
+      }
+      this.selectShopID = num;
+      this.showPledge = true;
     },
     async actionBuyWeapon(num) {
       let v = this
@@ -258,12 +361,14 @@ export default {
       //approve
       let contract = new v.myWeb3.eth.Contract(marketAbi, config.market)
       let info = await contract.methods.getWeaponInfo().call();
-      for (let i of config.weapon) {
+      let weapon = config.weapon
+      for (let i of weapon) {
         i.power = info[0][i.type - 1]
         i.price = new Decimal(info[1][i.type - 1]).div(Math.pow(10, 18)).toFixed()
         i.sale = info[2][i.type - 1]
       }
-      this.weapon = config.weapon
+
+      this.weapon = weapon
       console.log(`weapon 111`, this.weapon)
     },
     async actionHUSDApprove() {
@@ -334,11 +439,366 @@ export default {
       this.getMarket()
       this.checkHUSDApproved()
       this.getWaponMarket()
+      this.getMyCard()
     },
   }
 }
 </script>
+<style scoped lang="less">
+.ple {
+  position: relative;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
 
+}
+
+.ple-container {
+  padding-top: 40px;
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+//上半部分
+.ple-one-top {
+  width: 987px;
+  height: 64px;
+  background: url("../assect/contentDig/bg.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+
+  img {
+    margin-top: -20px;
+    width: 134px;
+    height: 55px;
+  }
+}
+
+.ple-error {
+  cursor: pointer;
+  width: 32px;
+  height: 33px;
+  background: url("../assect/dialog/error.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  right: 0;
+  top: -10px;
+}
+
+.ple-bottom {
+  width: 988px;
+  background: url("../assect/pack/bg.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 47px;
+}
+
+.ple-select {
+  margin-top: 27px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  position: relative;
+  z-index: 99;
+}
+
+.ple-select-left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.select-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-infos {
+  margin-left: 35px;
+}
+
+.select-infoss {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.compos-icon {
+  width: 121px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.select-info-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 12px;
+    height: 8px;
+    margin-left: 30px;
+  }
+}
+
+.select-top-title {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFD477;
+}
+
+.tab-line {
+  margin-top: 7px;
+  width: 119px;
+  height: 3px;
+}
+
+.select-tab {
+  position: absolute;
+  top: 35px;
+}
+
+.tab-info {
+  position: relative;
+  width: 119px;
+  height: 58px;
+  //line-height: 58;
+  background: #212121;
+  opacity: 0.7;
+  text-align: center;
+
+  span {
+    cursor: pointer;
+    line-height: 58px;
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFD477;
+  }
+}
+
+.ple-brown {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 154px;
+    height: 233px;
+  }
+}
+
+.ple-brown-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 19px;
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+
+  span {
+    padding-top: 21px;
+  }
+
+  span:nth-child(1) {
+    padding-top: 0;
+  }
+}
+
+
+//下选择
+
+
+.ple-add {
+  padding-top: 40px;
+
+  img {
+    cursor: pointer;
+    width: 69px;
+    height: 65px;
+  }
+}
+
+.ple-green {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.green-info {
+  width: 154px;
+  height: 233px;
+  background: url("../assect/pack/green-border.png") no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.green-infos {
+  cursor: pointer;
+  width: 154px;
+  height: 233px;
+  background: url("../assect/pack/green-border-op.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 60px;
+    height: 57px;
+  }
+}
+
+.ple-green-text {
+  padding-top: 46px;
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.ple-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+
+  img {
+    cursor: pointer;
+    width: 121px;
+    height: 60px;
+  }
+
+  span {
+    width: 25px;
+    height: 6px;
+    //color: ;
+    border-bottom: 2px solid rgba(227, 204, 110, 1);
+    transform: rotate(120deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .ple-container {
+    width: 100%;
+  }
+
+  @media (max-width: 960px) {
+    //弹窗
+    .dialog {
+      //margin-top: 81px;
+      padding-top: 50px;
+    }
+
+    .ple {
+      overflow: scroll;
+      padding-bottom: 100px;
+      margin-top: 50px;
+    }
+
+    .select-top-title {
+      font-size: 12px;
+    }
+
+    .select-info-top {
+      img {
+        margin-left: 10px;
+      }
+    }
+
+    .tab-info {
+      height: 50px;
+
+      span {
+        font-size: 12px;
+      }
+    }
+
+    .select-infos {
+      margin-left: 10px;
+    }
+
+    .ple-one-top {
+      width: 80%;
+    }
+
+    .ple-brown {
+      img {
+        width: 123px;
+        height: 185px;
+      }
+    }
+
+    .ple-bottom {
+      width: 80%;
+      height: 700px;
+    }
+
+    .tab-line {
+      width: 70px;
+    }
+
+    .ple-green {
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .ple-green-content {
+      width: 50%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .green-info {
+      margin-top: 45px;
+      width: 123px;
+      height: 185px;
+    }
+
+    .green-infos {
+      margin-top: 45px;
+      width: 123px;
+      height: 185px;
+    }
+
+  }
+}
+
+
+</style>
 <style scoped lang="less">
 .stop {
   position: relative;
