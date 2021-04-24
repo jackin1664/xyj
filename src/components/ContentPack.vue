@@ -273,7 +273,7 @@
         .pack {
           position: relative;
           width: 100%;
-          height: 1000px;
+          padding-bottom: 100px;
           background-image: url('../assect/content/bg.png');
           background-repeat: no-repeat;
           background-size: 100% 100%;
@@ -474,7 +474,8 @@
           }
 
           .pack {
-            height: 1223px;
+            padding-bottom: 50px;
+            //height: 1223px;
           }
           .pack-one-top {
             width: 80%;
