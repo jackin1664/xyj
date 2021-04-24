@@ -1060,12 +1060,24 @@
           transform: rotate(120deg);
         }
       }
-
+      .middle-info-right{
+        width: 60px;
+        height: 57px;
+        position: absolute;
+        left: 30%;
+        top: 40%;
+        z-index: 100;
+        cursor: pointer;
+      }
       @media (max-width: 1100px) {
         .ple-container {
           width: 100%;
         }
         @media (max-width: 960px) {
+          .middle-info-right {
+            width: 30px;
+            height: 30px;
+          }
           //弹窗
           .dialog {
             //margin-top: 81px;
