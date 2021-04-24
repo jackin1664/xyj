@@ -60,7 +60,30 @@
                 </div>
               </div>
             </div>
-<!--                  第二部分-->
+
+<!--            锁定奖励-->
+            <div class="dig-middle">
+              <!--              上部分-->
+              <div class="dig-one-top">
+                <img src="../assect/contentDig/nft-dig.png"/>
+              </div>
+
+              <div class="dig-middle-content">
+                <div class="middle-content-info">
+                  <div class="mid-info-title">奖励锁定数量</div>
+                  <div class="mid-info-num">1000TMK</div>
+                </div>
+                <div class="middle-content-info">
+                  <div class="mid-info-title">奖励锁定数量</div>
+                  <div class="mid-info-num">1000TMK</div>
+                  <div class="yellow2-btn mid-btn">领取</div>
+                </div>
+              </div>
+
+            </div>
+
+
+<!--                 第二部分-->
             <div class="dig-two">
 <!--              上部分-->
               <div class="dig-one-top dig-two-top">
@@ -595,10 +618,14 @@
 
       <style scoped lang="less">
 
+
+
+
+
       .dig {
         position: relative;
         width: 100%;
-        height: 1321px;
+        height: 1621px;
         background-image: url('../assect/content/bg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -812,6 +839,51 @@
       }
 
 
+      //中间部分
+      .dig-middle {
+        margin-top: 60px;
+      }
+
+      .dig-middle-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .middle-content-info {
+        background: #000;
+        width: 495px;
+        height: 172px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mid-info-title {
+        font-size: 18px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #E7E0D0;
+      }
+
+
+      .mid-info-num {
+        font-size: 24px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #FFD477;
+      }
+
+
+      .mid-btn {
+        margin-top: 14px;
+      }
+
+
+
+
+
       //第二部分
       .dig-two {
         padding-top: 67px;
@@ -944,13 +1016,36 @@
 
       @media (max-width: 960px) {
         .dig {
-          height: 2800px;
+          height: 3200px;
         }
         .dig-line {
           span {
             text-align: center;
           }
         }
+
+        .dig-middle {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: relative;
+        }
+
+
+        .dig-middle-content {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .middle-content-info {
+          width: 90%;
+        }
+
+
+
         .dig-one {
           width: 100%;
           display: flex;

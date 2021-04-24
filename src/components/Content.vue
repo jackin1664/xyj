@@ -606,6 +606,10 @@ export default {
 
 @media (max-width: 960px) {
 
+  .content {
+    //height: 7600px;
+  }
+
   .content-top {
     display: flex;
     flex-direction: column;
@@ -651,14 +655,12 @@ export default {
 
   .middle-bule {
     width: 85%;
-    height: 730px;
     background: url("../assect/content/h-border-bule.png") no-repeat;
     background-size: 100% 100%;
   }
 
   .middle-yellow {
     width: 85%;
-    height: 730px;
     background: url("../assect/content/h-border-yellow.png") no-repeat;
     background-size: 100% 100%;
   }
@@ -669,6 +671,14 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .middle-title {
+    margin-top: 20px;
+  }
+
+  .middle-info {
+    width: 80%;
   }
 
 
@@ -695,6 +705,9 @@ export default {
 
   .info-right {
     padding-top: 6px;
+    span {
+      font-size: 12px;
+    }
   }
 
   .info-right-name {

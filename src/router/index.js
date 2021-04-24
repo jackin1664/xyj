@@ -15,6 +15,7 @@ const Pack = () => import('../Views/BackPack');
 const Mount = () => import('../Views/Mount');
 const Invite = () => import('../Views/Invite');
 const ReCord = () => import('../Views/ReCord');
+const Pledge= () => import('../Views/Pledge');
 
 //申明使用插件
 Vue.use(VueRouter)
@@ -58,6 +59,10 @@ const routes = [
     {
         path: "/record",
         component: ReCord,
+    },
+    {
+        path: "/pledge",
+        component: Pledge,
     }
 
 ]
