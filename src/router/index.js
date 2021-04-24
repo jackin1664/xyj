@@ -37,7 +37,7 @@ const routes = [
         component: Dig,
     },
     {
-        path: "/receipt",
+        path: "/receipt/:id",
         component: Receipt,
     },
     {

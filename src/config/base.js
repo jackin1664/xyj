@@ -7,6 +7,7 @@ export default {
     nftReward:"0xf3c6871B585ce1eAcD1AA55aAe00E0C417266c78",
     market:"0x8B0D25f441CD4C50eD9bf18F093a0c7Fb3DE99ca",
     tmk:"0x72Efd78337072A803d2861e0E839030C3474B409",
+    lpReward:"0x634D0A212F62E4Eb0da19329cCd94AC31Bff6329",
     cards: [
         {
             name: "孙悟空",
@@ -345,5 +346,21 @@ export default {
             name:"哮天犬",
             type:17,
         },
+    ],
+    farms_list:[
+        {
+            id: "TMK",
+            token: "TMK",
+            token_icon: "/static/pic/token_icon/digger.png",
+            token_symbol: "TMK",
+            token_address: "0x72Efd78337072A803d2861e0E839030C3474B409",
+            token_decimals: 18,
+            token_earn: "TMK",
+            token_earn_icon: "/static/pic/token_icon/true.png",
+            reward_address: "0x634D0A212F62E4Eb0da19329cCd94AC31Bff6329",
+            reward_decimals: 18,
+            index:0,
+            type:0//0 单币 1 LP
+        }
     ]
 }

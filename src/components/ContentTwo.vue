@@ -121,7 +121,6 @@ export default {
   data() {
     return {
       husdApproved: false,
-      approveHash: '',
       approveHUSDHash: '',
       inviteAddress: '0x0000000000000000000000000000000000000001',
       myNFTCount:0,
@@ -165,7 +164,6 @@ export default {
             //hash
             console.log(`hash: ` + hash)
             v.$toast('交易已发出，等待结果。。。')
-            v.approveHash = hash;
             v.timer = setInterval(v.checkApproved, 1000);
             //server order
           }).on('receipt', function (receipt) {
