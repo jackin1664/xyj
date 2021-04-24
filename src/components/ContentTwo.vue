@@ -502,7 +502,7 @@ export default {
           .on('transactionHash', function (hash) {
             //hash
             console.log(`hash: ` + hash)
-            v.$toast('Transaction has send please wait result')
+            v.$toast('交易已发出，等待结果。。。')
             v.approveHash = hash;
             v.timer = setInterval(v.checkApproved, 1000);
             //server order

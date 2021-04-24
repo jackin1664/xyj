@@ -5,6 +5,8 @@ export default {
     nft: "0x582ADeBC1d74f8B25e397928542dCaA68848AE43",
     lock:"0x6C6EE4570e3fFC973DFFdbc9A1F7b69aDe8eA36D",
     nftReward:"0xf3c6871B585ce1eAcD1AA55aAe00E0C417266c78",
+    market:"0x2B9192c2c68CE9B9Ea559c1CAa9682C80530ADF5",
+    tmk:"0x72Efd78337072A803d2861e0E839030C3474B409",
     cards: [
         {
             name: "孙悟空",
@@ -273,5 +275,75 @@ export default {
             total:7
         },
 
+    ],
+    weapon:[
+        {
+            name:"如意金箍棒",
+            type:1,
+        },
+        {
+            name:"大环刀",
+            type:2,
+        },
+        {
+            name:"方天画戟",
+            type:3,
+        },
+        {
+            name:"三首蛟",
+            type:4,
+        },
+        {
+            name:"七宝玲珑塔",
+            type:5,
+        },
+        {
+            name:"琵琶",
+            type:6,
+        },
+        {
+            name:"宝剑",
+            type:7,
+        },
+        {
+            name:"赤龙",
+            type:8,
+        },
+        {
+            name:"宝伞",
+            type:9,
+        },
+        {
+            name:"银鼠",
+            type:10,
+        },
+        {
+            name:"银枪",
+            type:11,
+        },
+        {
+            name:"乾坤圈",
+            type:12,
+        },
+        {
+            name:"风火轮",
+            type:13,
+        },
+        {
+            name:"宣花斧",
+            type:14,
+        },
+        {
+            name:"金钢琢",
+            type:15,
+        },
+        {
+            name:"青牛",
+            type:16,
+        },
+        {
+            name:"哮天犬",
+            type:17,
+        },
     ]
 }
