@@ -181,7 +181,7 @@
       justify-content: space-between;
       width: 90%;
       position: relative;
-      z-index: 99;
+      z-index: 100;
     }
 
     .mount-select-left {

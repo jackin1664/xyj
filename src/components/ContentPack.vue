@@ -322,7 +322,7 @@
 
         .pack-select {
           position: relative;
-          z-index: 99;
+          z-index: 100;
           margin-top: 27px;
           display: flex;
           flex-direction: row;
