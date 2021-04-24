@@ -4,7 +4,7 @@ export default {
     sale: "0xd6531555eD12536000AFe0eF954951d46e35d621",
     nft: "0x582ADeBC1d74f8B25e397928542dCaA68848AE43",
     lock:"0x6C6EE4570e3fFC973DFFdbc9A1F7b69aDe8eA36D",
-    nftReward:"0xb9FEd609E3C75c0bd92A664b7ed94E8f50D04065",
+    nftReward:"0xf3c6871B585ce1eAcD1AA55aAe00E0C417266c78",
     cards: [
         {
             name: "孙悟空",

@@ -409,7 +409,7 @@
             const amount  =  await contract.methods.pendingSushi(0,local_address).call();
             console.log(`myReward`,amount)
             try{
-            this.myReward = new Decimal(amount).div(Math.pow(10,18)).toFixed()
+            this.myReward = new Decimal(amount).div(Math.pow(10,18)).toFixed(6)
             }catch (ex){
               this.myReward = 0
             }
@@ -459,7 +459,7 @@
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(NFTStakingAbi, reward_address)
-            const saleData = contract.methods.deposit(0,[21,22]).encodeABI();
+            const saleData = contract.methods.deposit(0,[4,5]).encodeABI();
             console.log('saledata', saleData)
             await v.myWeb3.eth.sendTransaction({
               from: local_address,
