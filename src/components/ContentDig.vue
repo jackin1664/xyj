@@ -62,25 +62,24 @@
             </div>
 
 <!--            锁定奖励-->
-            <div class="dig-middle">
-              <!--              上部分-->
-              <div class="dig-one-top">
-                <img src="../assect/contentDig/nft-dig.png"/>
-              </div>
+<!--            <div class="dig-middle">-->
+<!--              &lt;!&ndash;              上部分&ndash;&gt;-->
+<!--              <div class="dig-one-top">-->
+<!--                <img src="../assect/contentDig/nft-dig.png"/>-->
+<!--              </div>-->
 
-              <div class="dig-middle-content">
-                <div class="middle-content-info">
-                  <div class="mid-info-title">奖励锁定数量</div>
-                  <div class="mid-info-num">1000TMK</div>
-                </div>
-                <div class="middle-content-info">
-                  <div class="mid-info-title">奖励锁定数量</div>
-                  <div class="mid-info-num">1000TMK</div>
-                  <div class="yellow2-btn mid-btn">领取</div>
-                </div>
-              </div>
-
-            </div>
+<!--              <div class="dig-middle-content">-->
+<!--                <div class="middle-content-info">-->
+<!--                  <div class="mid-info-title">奖励锁定数量</div>-->
+<!--                  <div class="mid-info-num">1000TMK</div>-->
+<!--                </div>-->
+<!--                <div class="middle-content-info">-->
+<!--                  <div class="mid-info-title">奖励锁定数量</div>-->
+<!--                  <div class="mid-info-num">1000TMK</div>-->
+<!--                  <div class="yellow2-btn mid-btn">领取</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
 
 
 <!--                 第二部分-->
@@ -354,21 +353,168 @@
               </div>
             </div>
           </div>
+
+<!--          弹窗-->
+          <div  v-show="showPledge" class="dialog">
+            <div class="ple">
+              <div class="ple-container">
+                <!--              上部分-->
+                <div class="ple-one-top">
+                  <img src="../assect/pack/text.png"/>
+                  <div @click="closeDialog" class="ple-error"></div>
+                </div>
+                <!--          内容-->
+                <div class="ple-bottom">
+                  <!--              上部分-->
+                  <div class="ple-select">
+                    <div class="ple-select-left">
+                      <div class="select-info">
+                        <div class="select-info">
+                          <div @click="showType=!showType" class="select-info-top">
+                            <div class="select-top-title">{{type}}</div>
+                            <img src="../assect/pack/arrow-bottom.png"/>
+                          </div>
+                          <img class="tab-line" src="../assect/pack/line.png"/>
+                          <div v-show="showType" class="select-tab">
+                            <div v-for="(item,index) in tabType" class="tab-info" :key="index" @click="actionType(item)">
+                              <span>{{item.name}}</span>
+                              <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="select-info select-infos">
+                        <div @click="showSort=!showSort" class="select-info-top">
+                          <div class="select-top-title">{{sort}}</div>
+                          <img src="../assect/pack/arrow-bottom.png"/>
+                        </div>
+
+                        <img class="tab-line" src="../assect/pack/line.png"/>
+                        <div v-show="showSort" class="select-tab">
+                          <div v-for="(item,index) in tab" class="tab-info" :key="index" @click="actionSort(item)">
+                            <span>{{item.name}}</span>
+                            <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="select-info select-infoss">
+                        <div @click="showAll=!showAll" class="select-info-top">
+                          <div class="select-top-title">{{all}}</div>
+                          <img src="../assect/pack/arrow-bottom.png"/>
+                        </div>
+
+                        <img class="tab-line" src="../assect/pack/line.png"/>
+                        <div v-show="showAll" class="select-tab">
+                          <div v-for="(item,index) in tabAll" class="tab-info" :key="index" @click="actionAll(item)">
+                            <span>{{item.name}}</span>
+                            <!--                    <img class="tab-line" src="../assect/pack/line.png"/>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--            下部分-->
+                  <div class="ple-green">
+
+                    <div class="ple-green-content">
+<!--                      <div  class="green-info"></div>-->
+                      <div v-if="showCard" @click="showCard=!showCard" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard=!showCard" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+<!--                      <div v-else @click="showCard=!showCard" class="green-infos">-->
+<!--                        -->
+<!--                      </div>-->
+                    </div>
+
+                    <div class="ple-green-content">
+                      <div v-if="showCard2" @click="showCard2=!showCard2" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard2=!showCard2" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+                    </div>
+                    <div class="ple-green-content">
+                      <div v-if="showCard3" @click="showCard3=!showCard3" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard3=!showCard3" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+                    </div>
+                    <div class="ple-green-content">
+                      <div v-if="showCard4" @click="showCard4=!showCard4" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard4=!showCard4" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+                    </div>
+                    <div class="ple-green-content">
+                      <div v-if="showCard5" @click="showCard5=!showCard5" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border"/>
+                      </div>
+                      <div v-else @click="showCard5=!showCard5" class="middle-info-card">
+                        <img src="../assect/content/mon-card.png" class="middle-info-moncard middle-info-moncards"/>
+                        <img src="../assect/content/border-green.png" class="middle-info-border middle-info-borders"/>
+                        <img src="../assect/pack/right.png" class="middle-info-right"/>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="ple-green-text">
+                    已选中，最多可选1张
+                  </div>
+                  <div class="ple-btn">
+                    <div class="yellow-btn" >合成</div>
+                    <span></span>
+                    <div class="zhuan-btn">质押</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </template>
       <script>
       import '../css/base.less'
       import config from "@/config/base";
 
-      const tokenAbi = require('@/config/token_abi.json');
+      // const tokenAbi = require('@/config/token_abi.json');
       const saleNFTAbi = require('@/config/saleNFTABI.json');
       const NFTAbi = require('@/config/nftABI.json');
       const NFTStakingAbi = require('@/config/nftStakingRewardABI.json');
       const Decimal = require('decimal.js')
       export default {
         name: "ContentDig",
+        components: {},
         data() {
           return {
+            showCard:true, //卡片选择
+            showCard2:true,
+            showCard3:true,
+            showCard4:true,
+            showCard5:true,
+            showPledge:true,
             husdApproved: false,
             approveHash: '',
             approveHUSDHash: '',
@@ -381,14 +527,60 @@
             totalStakingPower:0,
             myStakingNFTAmount:0,
             myStakingPower:0,
-            rewardAddress:''
-
+            rewardAddress:'',
+            showSort:false,//排序显隐
+            showType:false,//类型显隐
+            showAll:false,//全选
+            all:'全选',//
+            sort:'默认排序',
+            type:'默认筛选',
+            tab:[
+              {
+                name:'战斗力',
+              },
+              {
+                name:'购买时间',
+              }
+            ],
+            tabType:[
+              {
+                name:'武器',
+              },
+              {
+                name:'卡片',
+              }
+            ],
+            tabAll:[
+              {
+                name:'武器',
+              },
+              {
+                name:'卡片',
+              }
+            ],
           }
         },
         mounted() {
           this.getData()
         },
         methods: {
+          closeDialog() {
+            this.showPledge=false
+          },
+          actionAll(item) {
+            this.all=item.name
+            this.showAll=false
+          },
+          //tab类型
+          actionType(item) {
+            this.type=item.name
+            this.showType=false
+          },
+          actionSort(item) {
+            console.log(item.name)
+            this.sort = item.name
+            this.showSort = false
+          },
           async actionWithdraw(){
             let v = this
             let reward_address = config.nftReward
@@ -645,6 +837,347 @@
         }
       }
       </script>
+      <style scoped lang="less">
+      .ple {
+        position: relative;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        margin-top: 100px;
+
+      }
+
+      .ple-container {
+        padding-top: 40px;
+        width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      //上半部分
+      .ple-one-top {
+        width: 987px;
+        height: 64px;
+        background: url("../assect/contentDig/bg.png")no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        img {
+          margin-top: -20px;
+          width: 134px;
+          height: 55px;
+        }
+      }
+
+      .ple-error {
+        cursor: pointer;
+        width: 32px;
+        height: 33px;
+        background: url("../assect/dialog/error.png")no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        right: 0;
+        top: -10px;
+      }
+
+      .ple-bottom {
+        width: 988px;
+        height: 515px;
+        background: url("../assect/pack/bg.png")no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 47px;
+      }
+
+      .ple-select {
+        margin-top: 27px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        position: relative;
+        z-index: 99;
+      }
+
+      .ple-select-left {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .select-info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .select-infos {
+        margin-left: 35px;
+      }
+
+      .select-infoss {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .compos-icon {
+        width: 121px;
+        height: 60px;
+        cursor: pointer;
+      }
+
+      .select-info-top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 12px;
+          height: 8px;
+          margin-left: 30px;
+        }
+      }
+
+      .select-top-title {
+        font-size: 16px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #FFD477;
+      }
+
+      .tab-line {
+        margin-top: 7px;
+        width: 119px;
+        height: 3px;
+      }
+
+      .select-tab {
+        position: absolute;
+        top: 35px;
+      }
+
+      .tab-info {
+        position: relative;
+        width: 119px;
+        height: 58px;
+        //line-height: 58;
+        background: #212121;
+        opacity: 0.7;
+        text-align: center;
+        span {
+          cursor: pointer;
+          line-height: 58px;
+          font-size: 16px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #FFD477;
+        }
+      }
+
+      .ple-brown {
+        margin-top: 55px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          width: 154px;
+          height: 233px;
+        }
+      }
+
+      .ple-brown-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 19px;
+        font-size: 16px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+        span {
+          padding-top: 21px;
+        }
+        span:nth-child(1) {
+          padding-top: 0;
+        }
+      }
+
+
+      //下选择
+
+
+      .ple-add {
+        padding-top: 40px;
+        img {
+          cursor: pointer;
+          width: 69px;
+          height: 65px;
+        }
+      }
+
+      .ple-green {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+      }
+
+      .green-info {
+        width: 154px;
+        height: 233px;
+        background: url("../assect/pack/green-border.png")no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+      }
+
+      .green-infos {
+        cursor: pointer;
+        width: 154px;
+        height: 233px;
+        background: url("../assect/pack/green-border-op.png")no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 60px;
+          height: 57px;
+        }
+      }
+
+      .ple-green-text {
+        padding-top: 46px;
+        font-size: 16px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #FFFFFF;
+      }
+
+      .ple-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+        img {
+          cursor: pointer;
+          width: 121px;
+          height: 60px;
+        }
+        span {
+          width: 25px;
+          height: 6px;
+          //color: ;
+          border-bottom: 2px solid rgba(227, 204, 110, 1);
+          transform: rotate(120deg);
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .ple-container {
+          width: 100%;
+        }
+        @media (max-width: 960px) {
+          //弹窗
+          .dialog {
+            //margin-top: 81px;
+            padding-top: 50px;
+          }
+
+          .ple {
+            overflow: scroll;
+            padding-bottom: 100px;
+            margin-top: 50px;
+          }
+
+          .select-top-title {
+            font-size: 12px;
+          }
+
+          .select-info-top {
+            img {
+              margin-left: 10px;
+            }
+          }
+
+          .tab-info {
+            height: 50px;
+            span {
+              font-size: 12px;
+            }
+          }
+
+          .select-infos {
+            margin-left: 10px;
+          }
+
+          .ple-one-top {
+            width: 80%;
+          }
+
+          .ple-brown {
+            img {
+              width: 123px;
+              height: 185px;
+            }
+          }
+
+          .ple-bottom {
+            width: 80%;
+            height: 700px;
+          }
+
+          .tab-line {
+            width: 70px;
+          }
+
+          .ple-green {
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .ple-green-content {
+            width: 50%;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .green-info {
+            margin-top: 45px;
+            width: 123px;
+            height: 185px;
+          }
+          .green-infos {
+            margin-top: 45px;
+            width: 123px;
+            height: 185px;
+          }
+
+        }
+      }
+
+
+
+      </style>
 
       <style scoped lang="less">
 
