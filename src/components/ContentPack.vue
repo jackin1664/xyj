@@ -435,7 +435,7 @@
 
         .bottom-info-right {
           display: flex;
-          height: 100%;
+          height: 238px;
           flex-direction: column;
           align-items: flex-start;
           justify-content: space-around;
@@ -498,7 +498,7 @@
             flex-wrap: nowrap;
           }
           .bottom-info-right {
-            height: 100%;
+            height: 190px;
             span {
               font-size: 12px;
             }
