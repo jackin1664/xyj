@@ -10,8 +10,8 @@
           <div class="top-rule">规则</div>
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-href.png"/>
-            <span class="top-info-text">我的邀请链接：www.xxx.com</span>
-            <img class="top-info-button" src="../assect/content/icon-copy.png"/>
+            <span class="top-info-text invite-text">邀请链接：{{inviteLink}}</span>
+            <img v-clipboard:copy="inviteLink" v-clipboard:success="onCopy" class="top-info-button" src="../assect/content/icon-copy.png"/>
           </div>
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-people.png"/>
@@ -24,17 +24,7 @@
           </div>
         </div>
         <div class="content-top-info">
-          <span class="top-info-inv top-info-invs">张三邀请了100人....................................................................</span>
-          <span
-              class="top-info-inv">张三邀请了100人....................................................................</span>
-          <span
-              class="top-info-inv">张三邀请了100人....................................................................</span>
-          <span
-              class="top-info-inv">张三邀请了100人....................................................................</span>
-          <span
-              class="top-info-inv">张三邀请了100人....................................................................</span>
-          <span
-              class="top-info-inv">张三邀请了100人....................................................................</span>
+          <span class="top-info-inv top-info-invs" v-for="(item,index) in inviteList" :key="index">{{item.inviteAddress}}...................邀请了........................{{item.address}}</span>
         </div>
       </div>
 
@@ -215,6 +205,8 @@ export default {
       huaguoshan:[],
       longgong:[],
       tiangong:[],
+      inviteLink:'',
+      inviteList:[]
     }
   },
   computed: {
@@ -298,9 +290,34 @@ export default {
         this.canUseNum = canUseNum
       }
     },
+    async getInviteLink() {
+      let v= this
+      let address = await v.action.getAddress()
+      this.inviteLink = config.domain +'/invite/' + address
+      let invite = this.$route.params.invite
+      if (invite) {
+        window.localStorage.setItem(`inviteID`, invite)
+      }
+    },
+    async queryMyInv(){
+      let v = this
+      let result = await this.$http.queryMyInv()
+      let inviteList = result.data.data.list
+      for(let it of inviteList){
+        it.address =  v.action.sortAddress(it.address)
+        it.inviteAddress =  v.action.sortAddress(it.inviteAddress)
+      }
+      this.inviteList = inviteList
+      console.log(`invite`,inviteList)
+    },
     async getAllData() {
+      this.getInviteLink()
       this.getInvite()
       this.bindCards()
+      this.queryMyInv()
+    },
+    onCopy() {
+      this.$toast('复制成功')
     },
   },
   mounted() {
@@ -312,7 +329,10 @@ export default {
 </script>
 
 <style scoped lang="less">
-
+.invite-text{
+  width: 66%;
+  word-wrap: break-word;
+}
 .content {
   position: relative;
   width: 100%;

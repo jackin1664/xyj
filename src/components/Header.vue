@@ -72,10 +72,10 @@ export default {
   },
   methods: {
     async actionAddress() {
-      this.address = await this.action.getSortAddress()
+      this.address = await  this.action.getSortAddress()
     },
     goPack() {
-      this.$router.push('pack')
+      this.$router.push('/pack')
       var mos = function (e) {
         e.preventDefault();
       };
@@ -83,7 +83,7 @@ export default {
       document.removeEventListener("touchmove", mos, false);
     },
     goStop() {
-      this.$router.push('stop')
+      this.$router.push('/stop')
       var mos = function (e) {
         e.preventDefault();
       };
@@ -99,7 +99,7 @@ export default {
       document.removeEventListener("touchmove", mos, false);
     },
     goBuy() {
-      this.$router.push('buy')
+      this.$router.push('/buy')
       var mos = function (e) {
         e.preventDefault();
       };
@@ -107,7 +107,7 @@ export default {
       document.removeEventListener("touchmove", mos, false);
     },
     goDig() {
-      this.$router.push('dig')
+      this.$router.push('/dig')
       var mos = function (e) {
         e.preventDefault();
       };
