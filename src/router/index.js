@@ -29,6 +29,10 @@ const routes = [
         component: Home,
     },
     {
+        path: '/invite/:invite',
+        component: Home,
+    },
+    {
         path: "/buy",
         component: Buy,
     },
