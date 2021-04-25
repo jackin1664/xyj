@@ -192,8 +192,6 @@ export default {
       this.showPledge = true;
     },
     async doInstall(){
-      alert(this.selectCard)
-      alert(this.selectShopID)
       let v = this
       var local_address = await v.action.getAddress()
       let reward_address = config.market

@@ -349,7 +349,9 @@ export default {
       let v = this
       //approve
       let contract = new v.myWeb3.eth.Contract(marketAbi, config.market)
+      console.log(`start get market`,config.market)
       let info = await contract.methods.getPriceCoefficientInfo().call();
+      console.log(`end get market`)
       for (let i of info[0]) {
         this.info[0].push(new Decimal(i).div(Math.pow(10, 18)).toFixed())
       }
