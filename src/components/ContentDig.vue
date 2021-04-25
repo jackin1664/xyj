@@ -1682,23 +1682,30 @@ export default {
 
 
   .hinfo-con-left {
+      width: 33.33%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #FFFFFF;
   }
 
   .con-left-title {
-    font-size: 16px;
+    font-size: 12px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #FFFFFF;
   }
 
   .con-left-num {
-    font-size: 16px;
+    font-size: 12px;
     font-family: Menlo-Regular, Menlo;
     font-weight: 400;
     color: #E7E0D0;
+    padding-top: 1px;
   }
 
 
