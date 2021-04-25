@@ -51,9 +51,9 @@
               </div>
               <!--                      按钮-->
               <div class="bit-right-btn">
-                <div @click="openDialog" class="yellow-btn">质押</div>
-                <div @click="actionGetReward" class="yellow-btn">提取奖励</div>
-                <div @click="actionWithdraw" class="yellow-btn">取消质押</div>
+                <div @click="openDialog" class="yellow2-btn">质押</div>
+                <div @click="actionGetReward" class="yellow2-btn">提取奖励</div>
+                <div @click="actionWithdraw" class="yellow2-btn">取消质押</div>
                 <!--                        <img @click="actionHUSDApprove" src="../assect/contentDig/approve.png"/>-->
                 <!--                        <img @click="actionDeposit" src="../assect/contentDig/haverst.png"/>-->
                 <!--                        <img @click="actionGetReward" src="../assect/contentDig/withdraw.png"/>-->
@@ -68,7 +68,7 @@
       <div class="dig-middle">
         <!--              上部分-->
         <div class="dig-one-top">
-          <img src="../assect/contentDig/nft-dig.png"/>
+          <img class="honer-text" src="../assect/contentDig/honer-text.png"/>
         </div>
 
         <div class="dig-middle-content">
@@ -1324,10 +1324,19 @@ export default {
   }
 }
 
+.yellow2-btn {
+  margin-top: 20px;
+}
+
 
 //中间部分
 .dig-middle {
   margin-top: 60px;
+}
+
+.honer-text {
+  width: 152px !important;
+  height: 39px !important;
 }
 
 .dig-middle-content {
@@ -1337,7 +1346,8 @@ export default {
 }
 
 .middle-content-info {
-  background: #000;
+  background:url("../assect/contentDig/honer-bg.png")no-repeat;
+  background-size: 100% 100%;
   width: 495px;
   height: 172px;
   display: flex;

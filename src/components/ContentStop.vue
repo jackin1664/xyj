@@ -966,7 +966,7 @@ export default {
 
   .stop-bottom {
     width: 90%;
-    height: 942px;
+    //height: 942px;
   }
 
   .stop-bottom-info {
