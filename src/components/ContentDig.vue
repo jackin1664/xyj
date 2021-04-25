@@ -134,12 +134,12 @@
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">$ {{item.tvl}}</span>
+                <span class="two-info-text">${{item.tvl}}</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{item.yearMonth}}%</span>
+                <span class="two-info-text">{{item.apy}}%</span>
               </div>
             </div>
             <div class="two-bottom-info">
@@ -160,17 +160,18 @@
                 <div class="hinfo-title-bg">APY</div>
               </div>
 <!--              info-->
-              <div class="hinfo-content">
+              <div v-for="item in lists" :key="item.id"  class="hinfo-content">
                 <div class="hinfo-con-left">
-                  <div class="con-left-title">TMK/MDX</div>
-                  <div class="con-left-num">373,044</div>
+                  <div class="con-left-title">{{item.token_symbol}}</div>
+                  <div class="con-left-num">${{item.tvl}}</div>
                 </div>
                 <div class="hinfo-con-left">
-                  <div class="con-left-title">0.00 MDX</div>
-                  <div class="con-left-num">2,823.84 MDX</div>
+                  <div class="con-left-title">{{item.reward}} TMK</div>
+                  <div class="con-left-num">{{item.perDay}} TMK</div>
                 </div>
-                <div class="hinfo-con-left">433.93%</div>
+                <div class="hinfo-con-left">{{item.apy}}%</div>
               </div>
+
             </div>
           </div>
         </div>
@@ -355,17 +356,20 @@ export default {
         it.perDay = new Decimal(allocPoint).div(totalAllocPoint).mul(perDay).toFixed()
         it.perMonth = new Decimal(allocPoint).div(totalAllocPoint).mul(perMonth).toFixed()
         it.yearMonth = new Decimal(it.perMonth).mul(12).toFixed()
-        it.reward = await contract.methods.pendingSushi(i,local_address).call();
+        let reward = await contract.methods.pendingSushi(i,local_address).call();
+        it.reward = new Decimal(reward).div(Math.pow(10,18)).toFixed(6)
+
         let tokenContract = new v.myWeb3.eth.Contract(tokenAbi, it.token_address)
         let totalBalance = await tokenContract.methods.balanceOf(it.reward_address).call();
         totalBalance = new Decimal(totalBalance).div(Math.pow(10, 18)).toFixed()
         console.log(`totalBalance`, totalBalance)
+        //计算价值
         if (it.type == 0) {
           it.tvl = new Decimal(totalBalance).mul(100000).toFixed(4)
         } else {
           console.log(2222)
         }
-        it.apy = new Decimal(it.yearMonth).mul(100000).div(it.tvl).mul(100).toFixed()
+        it.apy = new Decimal(it.yearMonth).mul(100000).div(it.tvl).mul(100).toFixed(2)
         i++
       }
 
