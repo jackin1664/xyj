@@ -9,7 +9,7 @@
             <div class="rec-info">
               <div class="info-content">
                 <div class="info-round">logo</div>
-                <div class="info-title">{{token_data.token_earn}} Inocme</div>
+                <div class="info-title">{{token_data.token_earn}} 奖励</div>
                 <div class="info-num">{{myReward}}</div>
               </div>
               <div class="info-content info-contents">
@@ -17,15 +17,15 @@
                   <div class="info-round">logo</div>
                   <div class="info-round info-round-two">logo</div>
                 </div>
-                <div class="info-title">{{token_data.token_symbol}} Stake</div>
+                <div class="info-title">{{token_data.token_symbol}} 质押</div>
                 <div class="info-num">{{myStaking}}</div>
               </div>
             </div>
             <div class="rec-btn">
-              <div class="green-btn"  @click="actionDeposit">Withdraw</div>
-              <div class="yellow2-btn" v-if="!husdApproved" @click="actionHUSDApprove">Approve</div>
-              <div class="green-btn" @click="actionGetReward" >Withdraw All</div>
-              <div class="yellow2-btn" @click="actionWithdraw">Haverst</div>
+              <div class="yellow2-btn" v-if="!husdApproved" @click="actionHUSDApprove">授权</div>
+              <div class="green-btn"  @click="actionDeposit">质押</div>
+              <div class="green-btn" @click="actionGetReward" >提取奖励</div>
+              <div class="yellow2-btn" @click="actionWithdraw">取出质押</div>
             </div>
           </div>
       <!--    approve弹窗-->
@@ -40,19 +40,36 @@
             </div>
           </div>
 <!--            withdraw-->
+          <div v-show="showDeposit" class="dialog">
+            <div class="dialog-content">
+              <div class="dialog-error" @click="closeDeposit"></div>
+              <div class="dialog-withdraw">
+                  <div class="dia-with-title">质押 {{token_data.token_symbol}}</div>
+                <div class="dialog-input">
+                  <input v-model="amount" class="dia-with-input"/>
+                  <div @click="max" class="black-btn">MAX</div>
+                </div>
+                  <div class="dia-with-lable">余额：{{myBalance}} {{token_data.token_symbol}}</div>
+                <div class="dia-with-btn">
+                  <div @click="cancel" class="green-btn">取消</div>
+                  <div @click="doDeposit" class="yellow2-btn">确定</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div v-show="showWithdraw" class="dialog">
             <div class="dialog-content">
               <div class="dialog-error" @click="closeWidthDraw"></div>
               <div class="dialog-withdraw">
-                  <div class="dia-with-title">Deposit/Withdraw TMK/MDX LP</div>
+                <div class="dia-with-title">取消质押 {{token_data.token_symbol}}</div>
                 <div class="dialog-input">
-                  <input class="dia-with-input"/>
-                  <div class="black-btn">MAX</div>
+                  <input v-model="amountWithdraw" class="dia-with-input"/>
+                  <div @click="maxWithdraw" class="black-btn">MAX</div>
                 </div>
-                  <div class="dia-with-lable">0 TMK/MDX LP Balance</div>
+                <div class="dia-with-lable"> 我的质押： {{myStaking}} {{token_data.token_symbol}}</div>
                 <div class="dia-with-btn">
-                  <div class="green-btn">取消</div>
-                  <div class="yellow2-btn">确定</div>
+                  <div @click="cancelWithdraw" class="green-btn">取消</div>
+                  <div @click="doWithdraw" class="yellow2-btn">确定</div>
                 </div>
               </div>
             </div>
@@ -71,12 +88,16 @@
         name: "ContentReceipt",
         data() {
           return{
+            showDeposit:false,//withdraw弹窗
             showWithdraw:false,//withdraw弹窗
             showApprove:false,//approve弹窗
             husdApproved: false,
             approveHUSDHash: '',
             myStaking:0,
-            myReward:0
+            myReward:0,
+            myBalance:0,
+            amount:'',
+            amountWithdraw:'',
           }
         },
         computed: {
@@ -92,6 +113,9 @@
           },
         },
         methods: {
+          closeDeposit() {
+            this.showDeposit=false
+          },
           closeWidthDraw() {
             this.showWithdraw=false
           },
@@ -99,7 +123,18 @@
           closeDialog() {
             this.showApprove=false
           },
-
+          cancel(){
+            this.showDeposit=false
+          },
+          cancelWithdraw(){
+            this.showWithdraw=false
+          },
+          max(){
+            this.amount = this.myBalance
+          },
+          maxWithdraw(){
+            this.amountWithdraw = this.myStaking
+          },
           async actionHUSDApprove() {
             this.showApprove=true;
             let v = this
@@ -150,15 +185,13 @@
               }
             });
           },
-          //质押
-          async actionDeposit(){
-            this.showWithdraw=true
+          async doDeposit(){
             let v = this
             let reward_address = v.token_data.reward_address
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(LPAbi, reward_address)
-            let num = new Decimal(10).mul(Math.pow(10,18)).toFixed()
+            let num = new Decimal(this.amount).mul(Math.pow(10,18)).toFixed()
             const approveData = contract.methods.deposit(v.token_data.index, num).encodeABI();
             console.log('approvedata', approveData)
             await v.myWeb3.eth.sendTransaction({
@@ -178,7 +211,16 @@
                   //receipt
                   console.log(receipt)
                 })
+            this.showDeposit = false
             this.getData()
+          },
+          //质押
+          async actionDeposit(){
+            this.showDeposit=true
+          },
+          //质押
+          async actionWithdraw(){
+            this.showWithdraw=true
           },
           //提取收益
           async actionGetReward(){
@@ -209,7 +251,7 @@
             this.getData()
           },
           //提取本金
-          async actionWithdraw(){
+          async doWithdraw(){
             let v = this
             let reward_address = v.token_data.reward_address
             var local_address = await v.action.getAddress()
@@ -236,7 +278,16 @@
                   //receipt
                   console.log(receipt)
                 })
+            this.showWithdraw = false
             this.getData()
+          },
+          async getBalance(){
+            let v = this
+            var local_address = await v.action.getAddress()
+            //approve
+            let contract = new v.myWeb3.eth.Contract(tokenAbi, v.token_data.token_address)
+            const balance = await contract.methods.balanceOf(local_address).call();
+            this.myBalance = new Decimal( balance).div(Math.pow(10,18)).toFixed()
           },
           async getMyStake(){
             let v = this
@@ -260,6 +311,7 @@
 
           },
           async getData() {
+            this.getBalance()
             this.checkHUSDApproved()
             this.getMyReward()
             this.getMyStake()

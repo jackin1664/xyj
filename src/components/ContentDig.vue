@@ -361,7 +361,7 @@ export default {
         totalBalance = new Decimal(totalBalance).div(Math.pow(10, 18)).toFixed()
         console.log(`totalBalance`, totalBalance)
         if (it.type == 0) {
-          it.tvl = new Decimal(totalBalance).mul(100000).toFixed()
+          it.tvl = new Decimal(totalBalance).mul(100000).toFixed(4)
         } else {
           console.log(2222)
         }
