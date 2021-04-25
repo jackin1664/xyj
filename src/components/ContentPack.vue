@@ -222,7 +222,6 @@ export default {
       this.showPledge = false
     },
     async doUnInstall(tokenId){
-      alert(tokenId)
       let v = this
       var local_address = await v.action.getAddress()
       let reward_address = config.market
