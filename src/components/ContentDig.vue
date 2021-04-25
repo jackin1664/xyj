@@ -153,139 +153,23 @@
         <div class="two-bottom H5-view">
           <div class="two-bottom-H">
             <div class="two-bottom-Hinfo">
-              <div class="Hinfo-left">
-                <div class="Hinfo-left-title">LP</div>
-                <div class="Hinfo-left-title">Daily Output</div>
-                <div class="Hinfo-left-title">Monthly output</div>
-                <div class="Hinfo-left-title">Value Locked</div>
-                <div class="Hinfo-left-title">APY</div>
-                <div class="Hinfo-left-title">Your Reward</div>
+<!--              title-->
+              <div class="hinfo-title">
+                <div class="hinfo-title-bg">交易对/TVL</div>
+                <div class="hinfo-title-bg">个人收益/日产量</div>
+                <div class="hinfo-title-bg">APY</div>
               </div>
-              <div class="Hinfo-right">
-                <div class="Hinfo-right-text">
-                  <img class="round-one" src="../assect/contentDig/round.png"/>
-                  <img class="round-two round-two-s" src="../assect/contentDig/round.png"/>
-                  <span>HGT/HUSD</span>
+<!--              info-->
+              <div class="hinfo-content">
+                <div class="hinfo-con-left">
+                  <div class="con-left-title">TMK/MDX</div>
+                  <div class="con-left-num">373,044</div>
                 </div>
-                <div class="Hinfo-right-text">
-                  <span>1,068,48 MDX</span>
+                <div class="hinfo-con-left">
+                  <div class="con-left-title">0.00 MDX</div>
+                  <div class="con-left-num">2,823.84 MDX</div>
                 </div>
-                <div class="Hinfo-right-text">
-                  <span>32,054,40 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>$ 373,044</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>433.93%</span>
-                </div>
-                <div class="two-info-td two-info-tds two-info-Htds">
-                  <span class="two-info-text">0.0000%</span>
-                  <div class="two-blue-bg">Stake</div>
-                </div>
-
-              </div>
-            </div>
-            <div class="two-bottom-Hinfo two-bottom-Hinfos">
-              <div class="Hinfo-left">
-                <div class="Hinfo-left-title">LP</div>
-                <div class="Hinfo-left-title">Daily Output</div>
-                <div class="Hinfo-left-title">Monthly output</div>
-                <div class="Hinfo-left-title">Value Locked</div>
-                <div class="Hinfo-left-title">APY</div>
-                <div class="Hinfo-left-title">Your Reward</div>
-              </div>
-              <div class="Hinfo-right">
-                <div class="Hinfo-right-text">
-                  <img class="round-one" src="../assect/contentDig/round.png"/>
-                  <img class="round-two round-two-s" src="../assect/contentDig/round.png"/>
-                  <span>SH/HUSD</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>1,068,48 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>32,054,40 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>$ 373,044</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>433.93%</span>
-                </div>
-                <div class="two-info-td two-info-tds two-info-Htds">
-                  <span class="two-info-text">0.0000%</span>
-                  <div class="two-blue-bg">Stake</div>
-                </div>
-
-              </div>
-            </div>
-            <div class="two-bottom-Hinfo two-bottom-Hinfos">
-              <div class="Hinfo-left">
-                <div class="Hinfo-left-title">LP</div>
-                <div class="Hinfo-left-title">Daily Output</div>
-                <div class="Hinfo-left-title">Monthly output</div>
-                <div class="Hinfo-left-title">Value Locked</div>
-                <div class="Hinfo-left-title">APY</div>
-                <div class="Hinfo-left-title">Your Reward</div>
-              </div>
-              <div class="Hinfo-right">
-                <div class="Hinfo-right-text">
-                  <img class="round-one" src="../assect/contentDig/round.png"/>
-                  <img class="round-two round-two-s" src="../assect/contentDig/round.png"/>
-                  <span>HGT/FILDA</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>1,068,48 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>32,054,40 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>$ 373,044</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>433.93%</span>
-                </div>
-                <div class="two-info-td two-info-tds two-info-Htds">
-                  <span class="two-info-text">0.0000%</span>
-                  <div class="two-blue-bg">Stake</div>
-                </div>
-
-              </div>
-            </div>
-            <div class="two-bottom-Hinfo two-bottom-Hinfos">
-              <div class="Hinfo-left">
-                <div class="Hinfo-left-title">LP</div>
-                <div class="Hinfo-left-title">Daily Output</div>
-                <div class="Hinfo-left-title">Monthly output</div>
-                <div class="Hinfo-left-title">Value Locked</div>
-                <div class="Hinfo-left-title">APY</div>
-                <div class="Hinfo-left-title">Your Reward</div>
-              </div>
-              <div class="Hinfo-right">
-                <div class="Hinfo-right-text">
-                  <img class="round-one" src="../assect/contentDig/round.png"/>
-                  <img class="round-two round-two-s" src="../assect/contentDig/round.png"/>
-                  <span>PIPI/HUSD</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>1,068,48 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>32,054,40 MDX</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>$ 373,044</span>
-                </div>
-                <div class="Hinfo-right-text">
-                  <span>433.93%</span>
-                </div>
-                <div class="two-info-td two-info-tds two-info-Htds">
-                  <span class="two-info-text">0.0000%</span>
-                  <div class="two-blue-bg">Stake</div>
-                </div>
-
+                <div class="hinfo-con-left">433.93%</div>
               </div>
             </div>
           </div>
@@ -1759,11 +1643,66 @@ export default {
   //h5
   .two-bottom-Hinfo {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
   }
+
+  .hinfo-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hinfo-title-bg {
+    width: 33.3333%;
+    height: 71px;
+    background:url("../assect/contentDig/title-bg.png")no-repeat;
+    background-size: 100% 100%;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    text-align: center;
+    line-height: 71px;
+    color: #797A79;
+  }
+
+  .hinfo-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 71px;
+    background:url("../assect/contentDig/info-bg.png")no-repeat;
+    background-size: 100% 100%;
+  }
+
+
+  .hinfo-con-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .con-left-title {
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+
+  .con-left-num {
+    font-size: 16px;
+    font-family: Menlo-Regular, Menlo;
+    font-weight: 400;
+    color: #E7E0D0;
+  }
+
+
+
 
   .two-bottom-Hinfos {
     margin-top: 20px;
