@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     async actionAddress() {
-      this.address = await this.action.getSortAddress()
+      this.address = await  this.action.getSortAddress()
     },
     goPack() {
       this.$router.push('/pack')

@@ -555,7 +555,7 @@ export default {
     },
     async getRewardAddress() {
       let v = this
-      this.rewardAddress = await v.action.sortAddress(config.nftReward)
+      this.rewardAddress =  v.action.sortAddress(config.nftReward)
     },
     async getMyUserInfo() {
       let v = this

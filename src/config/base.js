@@ -1,4 +1,5 @@
 export default {
+    domain:'11111111',
     baseUrl: "/",
     usdt: "0x295BF277C1861511C5b0095EBda30459186C49d7",
     sale: "0xd6531555eD12536000AFe0eF954951d46e35d621",
@@ -129,14 +130,14 @@ export default {
             total:1
         },
         {
-            name: "东方持国天王",
+            name: "持国天王",
             type: 16,
             camp: "天宫",
             power: 2300,
             total:1
         },
         {
-            name: "南方增长天王",
+            name: "增长天王",
             type: 17,
             camp: "天宫",
             power: 3200,
@@ -157,14 +158,14 @@ export default {
             total:1
         },
         {
-            name: "北方多闻天王",
+            name: "多闻天王",
             type: 20,
             camp: "天宫",
             power: 4200,
             total:1
         },
         {
-            name: "西方广目天王",
+            name: "广目天王",
             type: 21,
             camp: "天宫",
             power: 4200,

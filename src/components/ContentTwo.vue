@@ -65,41 +65,15 @@
             <div class="top-info-right-table">
               <table>
                 <tr>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>TokenID</th>
+                  <th>用户</th>
+                  <th>购买</th>
+                  <th>数量</th>
                 </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
+                <tr v-for="(item,index) in getCards" :key="index">
+                  <td>{{item.address}}</td>
+                  <td>购买</td>
+                  <td>{{item.amount}} 张</td>
                 </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
-                </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
-                </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
-                </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
-                </tr>
-                <tr>
-                  <td>1111</td>
-                  <td>1111</td>
-                  <td>11</td>
-                </tr>
-
               </table>
             </div>
           </div>
@@ -124,7 +98,8 @@ export default {
       approveHUSDHash: '',
       inviteAddress: '0x0000000000000000000000000000000000000001',
       myNFTCount:0,
-      nftAreadySale:0
+      nftAreadySale:0,
+      getCards:[]
     }
   },
   mounted() {
@@ -227,6 +202,16 @@ export default {
         }
       });
     },
+    async getyMyCard(){
+      let result = await this.$http.getBuyList();
+      let getCards = result.data.data.list
+      for(let it of getCards){
+          it.address =  this.action.sortAddress(it.address)
+      }
+      this.getCards = getCards
+      console.log(`getcards`,getCards)
+    },
+
     goPack() {
       this.$router.push('pack')
     },
@@ -234,6 +219,7 @@ export default {
       this.checkHUSDApproved()
       this.getMyNFT()
       this.getNFTSaleAmount()
+      this.getyMyCard()
     }
   }
 }
@@ -438,13 +424,13 @@ export default {
   }
 
   th {
-    padding: 8px 39px;
+    padding: 8px 30px;
   }
 
   td {
     text-align: center;
     //border: 1px solid #46494F;
-    padding: 3px 29px;
+    padding: 3px 20px;
   }
 
   td:nth-child(2) {

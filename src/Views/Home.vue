@@ -31,15 +31,10 @@
             }
         },
         methods: {
-            async getInviteLink() {
-                let invite = this.$route.params.invite
-                if (invite) {
-                    window.localStorage.setItem(`inviteID`, invite)
-                }
-            },
+
         },
         mounted() {
-            this.getInviteLink()
+
         }
     }
 </script>
