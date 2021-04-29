@@ -257,7 +257,7 @@
             var local_address = await v.action.getAddress()
             //approve
             let contract = new v.myWeb3.eth.Contract(LPAbi, reward_address)
-            let num = 10
+            let num = this.amountWithdraw
             let amount = new Decimal(num).mul(Math.pow(10,18)).toFixed()
             const approveData = contract.methods.withdraw(v.token_data.index, amount).encodeABI();
             console.log('approvedata', approveData)

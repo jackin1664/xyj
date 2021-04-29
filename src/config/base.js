@@ -1,6 +1,6 @@
 export default {
     domain:'http://tmk.finance',
-    baseUrl: "http://api.tmk.finance/",
+    baseUrl: "http://45.135.48.71:8096/",
     usdt: "0x6901a7f200Cca9CC3dF397f8E2380Ea087d970e6",
     sale: "0x91Ee86b4DE58f1256083F115476982e414b39384",
     nft: "0x9C367a0b9e09b86DcAa68BE3EEb763B01958dcC2",
