@@ -90,6 +90,7 @@ import config from "@/config/base";
 const tokenAbi = require('@/config/token_abi.json');
 const saleNFTAbi = require('@/config/saleNFTABI.json');
 const NFTAbi = require('@/config/nftABI.json');
+const Decimal = require('decimal.js');
 export default {
   name: "ContentTwo",
   data() {
@@ -111,7 +112,8 @@ export default {
       //approve
       let contract = new v.myWeb3.eth.Contract(saleNFTAbi, config.sale)
       let count = await contract.methods.nftAreadySale().call();
-      this.nftAreadySale = count
+
+      this.nftAreadySale = new Decimal(15035).sub(count).toFixed()
     },
     async getMyNFT(){
       let v = this
