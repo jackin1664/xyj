@@ -128,7 +128,7 @@ export default {
       //approve
       let contract = new v.myWeb3.eth.Contract(saleNFTAbi, reward_address)
       let inviteAddress = window.localStorage.getItem(`inviteID`)
-      if(inviteAddress){
+      if(inviteAddress.toLowerCase() != local_address.toLowerCase()){
         this.inviteAddress = inviteAddress
       }
       const saleData = contract.methods.buyGftUseUSDT_user(num, this.inviteAddress).encodeABI();

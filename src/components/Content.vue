@@ -446,9 +446,6 @@ export default {
   line-height: 22px;
 }
 
-.top-info-invs {
-  padding-top: 38px;
-}
 
 //中间部分
 

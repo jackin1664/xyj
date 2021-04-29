@@ -74,11 +74,11 @@
         <div class="dig-middle-content">
           <div class="middle-content-info">
             <div class="mid-info-title">奖励锁定数量</div>
-            <div class="mid-info-num">{{lockReward}}TMK</div>
+            <div class="mid-info-num">{{ lockReward }}TMK</div>
           </div>
           <div class="middle-content-info">
             <div class="mid-info-title">我的奖励数量</div>
-            <div class="mid-info-num">{{lockMyReward}}TMK</div>
+            <div class="mid-info-num">{{ lockMyReward }}TMK</div>
             <div @click="actionWithdrawMyLockReward" class="yellow2-btn mid-btn">领取</div>
           </div>
         </div>
@@ -117,34 +117,34 @@
           <div v-for="item in lists" :key="item.id" class="two-bottom">
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <img class="round-one" :src="item.token_icon"/>
-                <img class="round-two " :src="item.token_earn_icon"/>
-                <span>{{item.token_symbol}}</span>
+                <!--                <img class="round-one" :src="item.token_icon"/>-->
+                <!--                <img class="round-two " :src="item.token_earn_icon"/>-->
+                <span>{{ item.token_symbol }}</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{item.perDay}} TMK</span>
+                <span class="two-info-text">{{ item.perDay }} TMK</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{item.perMonth}} TMK</span>
+                <span class="two-info-text">{{ item.perMonth }} TMK</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">${{item.tvl}}</span>
+                <span class="two-info-text">${{ item.tvl }}</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{item.apy}}%</span>
+                <span class="two-info-text">{{ item.apy }}%</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td two-info-tds">
-                <span class="two-info-text">{{item.reward}} TMK</span>
+                <span class="two-info-text">{{ item.reward }} TMK</span>
                 <router-link class="two-blue-bg" :to="`/receipt/${item.id}`">质押</router-link>
               </div>
             </div>
@@ -153,23 +153,23 @@
         <div class="two-bottom H5-view">
           <div class="two-bottom-H">
             <div class="two-bottom-Hinfo">
-<!--              title-->
+              <!--              title-->
               <div class="hinfo-title">
                 <div class="hinfo-title-bg">交易对/TVL</div>
                 <div class="hinfo-title-bg">个人收益/日产量</div>
                 <div class="hinfo-title-bg">APY</div>
               </div>
-<!--              info-->
-              <div v-for="item in lists" :key="item.id"  class="hinfo-content">
+              <!--              info-->
+              <div v-for="item in lists" :key="item.id" class="hinfo-content">
                 <div class="hinfo-con-left">
-                  <div class="con-left-title">{{item.token_symbol}}</div>
-                  <div class="con-left-num">${{item.tvl}}</div>
+                  <div class="con-left-title">{{ item.token_symbol }}</div>
+                  <div class="con-left-num">${{ item.tvl }}</div>
                 </div>
                 <div class="hinfo-con-left">
-                  <div class="con-left-title">{{item.reward}} TMK</div>
-                  <div class="con-left-num">{{item.perDay}} TMK</div>
+                  <div class="con-left-title">{{ item.reward }} TMK</div>
+                  <div class="con-left-num">{{ item.perDay }} TMK</div>
                 </div>
-                <div class="hinfo-con-left">{{item.apy}}%</div>
+                <div class="hinfo-con-left">{{ item.apy }}%</div>
               </div>
 
             </div>
@@ -191,7 +191,7 @@
           <div class="ple-bottom">
             <!--            下部分-->
             <div class="ple-green">
-              <div v-for="item in cards" :key="item.thirdId" class="ple-green-content">
+              <div v-for="item in cards" :key="item.tokenId" class="ple-green-content">
                 <div v-if="selectCards.indexOf(item.tokenId)< 0" @click="selectCardID(item.tokenId)"
                      class="middle-info-card">
                   <img :src="item.img" class="middle-info-moncard"/>
@@ -224,6 +224,7 @@ const NFTAbi = require('@/config/nftABI.json');
 const NFTStakingAbi = require('@/config/nftStakingRewardABI.json');
 const LPAbi = require('@/config/lpStakingRewardABI.json');
 const LockAbi = require('@/config/lockRewardABI.json');
+const priceAbi = require('@/config/priceABI.json');
 const Decimal = require('decimal.js')
 export default {
   name: "ContentDig",
@@ -243,8 +244,8 @@ export default {
       nftAreadySale: 0,
       perDayReward: 0,
       myReward: 0,
-      lockReward:0,
-      lockMyReward:0,
+      lockReward: 0,
+      lockMyReward: 0,
       totalStakingNFTAmount: 0,
       totalStakingPower: 0,
       myStakingNFTAmount: 0,
@@ -322,7 +323,7 @@ export default {
         "10036": require('../assect/cards/10036.png'),
       },
       selectCards: [],
-      lists:[]
+      lists: []
     }
   },
   mounted() {
@@ -349,33 +350,48 @@ export default {
       let perMonth = new Decimal(perDay).mul(30).toFixed()
       let totalAllocPoint = await contract.methods.totalAllocPoint().call();
       let i = 0
-
+      let resultList = []
+      //查询价值合约
+      let priceContract = new v.myWeb3.eth.Contract(priceAbi, config.price)
       for (let it of lists) {
         let poolInfo = await contract.methods.poolInfo(i).call();
         let allocPoint = poolInfo.allocPoint
-        it.perDay = new Decimal(allocPoint).div(totalAllocPoint).mul(perDay).toFixed()
-        it.perMonth = new Decimal(allocPoint).div(totalAllocPoint).mul(perMonth).toFixed()
-        it.yearMonth = new Decimal(it.perMonth).mul(12).toFixed()
-        let reward = await contract.methods.pendingSushi(i,local_address).call();
-        it.reward = new Decimal(reward).div(Math.pow(10,18)).toFixed(6)
+        //如果是0  池子作废
+        if (allocPoint == 0) {
+          i++
+          continue
+        }
+        it.perDay = new Decimal(allocPoint).div(totalAllocPoint).mul(perDay).toFixed(6)
+        it.perMonth = new Decimal(allocPoint).div(totalAllocPoint).mul(perMonth).toFixed(6)
+        it.yearMonth = new Decimal(it.perMonth).mul(12).toFixed(6)
+        console.log(`perDay`, it.perDay, `perMonth`, it.perMonth, `yearMonth`, it.yearMonth)
+        console.log(111111, it.token, i)
+        let reward = await contract.methods.pendingSushi(i, local_address).call();
+        it.reward = new Decimal(reward).div(Math.pow(10, 18)).toFixed(6)
 
         let tokenContract = new v.myWeb3.eth.Contract(tokenAbi, it.token_address)
-        let totalBalance = await tokenContract.methods.balanceOf(it.reward_address).call();
-        totalBalance = new Decimal(totalBalance).div(Math.pow(10, 18)).toFixed()
-        console.log(`totalBalance`, totalBalance)
+        console.log(33333, it.token)
+        let resultTotalBalance = await tokenContract.methods.balanceOf(it.reward_address).call();
+        console.log(4444, resultTotalBalance, it.token)
+        console.log(it.token, 'resultTotalBalance', resultTotalBalance)
+        // let totalBalance = new Decimal(resultTotalBalance).div(Math.pow(10, 18)).toFixed()
+        // console.log(`totalBalance`, totalBalance,'resultTotalBalance',resultTotalBalance)
         //计算价值
-        if (it.type == 0) {
-          it.tvl = new Decimal(totalBalance).mul(100000).toFixed(4)
-        } else {
-          console.log(2222)
-        }
-        it.apy = new Decimal(it.yearMonth).mul(100000).div(it.tvl).mul(100).toFixed(2)
+        console.log(`get price`, i, resultTotalBalance, it.token)
+        let price = await priceContract.methods.getLpValue(i, resultTotalBalance).call()
+        console.log(`price`, i, resultTotalBalance, it.token, price)
+        it.tvl = new Decimal(price).div(Math.pow(10, 18)).toFixed(4)
+        //获取一个TMK价格
+        // let tmk1 = new Decimal(1).mul(Math.pow(10,18)).toFixed()
+        // console.log(`get tmk price`)
+        // let tmkPrice = await priceContract.methods.getLpValue(10000, tmk1).call()
+        // console.log(`tmk price`,tmkPrice)
+        //计算年化收益
+        it.apy = new Decimal(it.yearMonth).mul(1).div(it.tvl).mul(100).toFixed(2)
+        resultList.push(it)
         i++
       }
-
-      this.lists = lists
-
-
+      this.lists = resultList
       console.log('lists', this.lists)
     },
     async selectCardID(cardId) {
@@ -443,7 +459,7 @@ export default {
     },
     async getRewardAddress() {
       let v = this
-      this.rewardAddress =  v.action.sortAddress(config.nftReward)
+      this.rewardAddress = v.action.sortAddress(config.nftReward)
     },
     async getMyUserInfo() {
       let v = this
@@ -516,7 +532,7 @@ export default {
         this.lockMyReward = 0
       }
     },
-    async actionWithdrawMyLockReward(){
+    async actionWithdrawMyLockReward() {
       let v = this
       let reward_address = config.lock
       var local_address = await v.action.getAddress()
@@ -1350,7 +1366,7 @@ export default {
 }
 
 .middle-content-info {
-  background:url("../assect/contentDig/honer-bg.png")no-repeat;
+  background: url("../assect/contentDig/honer-bg.png") no-repeat;
   background-size: 100% 100%;
   width: 495px;
   height: 172px;
@@ -1455,11 +1471,11 @@ export default {
   position: relative;
 
   span {
-    font-size: 16px;
+    font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: #FFFFFF;
-    padding-left: 25px;
+    padding-left: 20px;
   }
 
   img {
@@ -1493,7 +1509,7 @@ export default {
 }
 
 .round-one {
-  margin-left: 13px;
+  margin-left: 4px;
 }
 
 .round-two {
@@ -1514,9 +1530,10 @@ export default {
 
 
 @media (max-width: 960px) {
-  .pc-view{
+  .pc-view {
     display: none;
   }
+
   .dig {
     //height: 3200px;
   }
@@ -1673,7 +1690,7 @@ export default {
   .hinfo-title-bg {
     width: 33.3333%;
     height: 71px;
-    background:url("../assect/contentDig/title-bg.png")no-repeat;
+    background: url("../assect/contentDig/title-bg.png") no-repeat;
     background-size: 100% 100%;
     font-size: 12px;
     font-family: PingFangSC-Regular, PingFang SC;
@@ -1690,21 +1707,21 @@ export default {
     justify-content: center;
     width: 100%;
     height: 71px;
-    background:url("../assect/contentDig/info-bg.png")no-repeat;
+    background: url("../assect/contentDig/info-bg.png") no-repeat;
     background-size: 100% 100%;
   }
 
 
   .hinfo-con-left {
-      width: 33.33%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-family: PingFangSC-Regular, PingFang SC;
-      font-weight: 400;
-      color: #FFFFFF;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
   }
 
   .con-left-title {
@@ -1721,8 +1738,6 @@ export default {
     color: #E7E0D0;
     padding-top: 1px;
   }
-
-
 
 
   .two-bottom-Hinfos {

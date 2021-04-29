@@ -1,15 +1,15 @@
 export default {
-    domain:'11111111',
-    baseUrl: "/",
+    domain:'http://tmk.finance',
+    baseUrl: "http://api.tmk.finance/",
     usdt: "0x6901a7f200Cca9CC3dF397f8E2380Ea087d970e6",
     sale: "0x91Ee86b4DE58f1256083F115476982e414b39384",
     nft: "0x9C367a0b9e09b86DcAa68BE3EEb763B01958dcC2",
     lock:"0x74181431cd2674897776e5b9Eaf054f33625F54c",
-    nftReward:"0xf615bD1761233077039D88d0FF128432aEfE0fD2",
+    nftReward:"0x3e7D9E25E8F1e22c0F021AF429aC9036df7BB4Df",
     market:"0x3061E7b57aF2e871850ed4812De325137D8BB630",
     tmk:"0x80Ae29c76A75Dea44EED62eDD51A0Bd3D3B30870",
-    lpReward:"0x7d0Ef83bBDA0a8a205B910606676985154320FEC",
-    price:"0x2060e7c1472E40ff9Eb7E99674fbF091DdF9294E",
+    lpReward:"0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
+    price:"0x0eAEeb83426c306Fc6441477C1F193341B007690",
     cards: [
         {
             name: "孙悟空",
@@ -351,18 +351,46 @@ export default {
     ],
     farms_list:[
         {
-            id: "TMK",
-            token: "TMK",
+            id: "USDT",
+            token: "USDT",
             token_icon: "/static/pic/token_icon/digger.png",
-            token_symbol: "TMK",
-            token_address: "0x72Efd78337072A803d2861e0E839030C3474B409",
+            token_symbol: "USDT",
+            token_address: "0x6901a7f200Cca9CC3dF397f8E2380Ea087d970e6",
             token_decimals: 18,
             token_earn: "TMK",
             token_earn_icon: "/static/pic/token_icon/true.png",
-            reward_address: "0x634D0A212F62E4Eb0da19329cCd94AC31Bff6329",
+            reward_address: "0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
             reward_decimals: 18,
             index:0,
             type:0//0 单币 1 LP
-        }
+        },
+        {
+            id: "HT-USDT",
+            token: "HT-USDT LP",
+            token_icon: "/static/pic/token_icon/digger.png",
+            token_symbol: "HT-USDT LP",
+            token_address: "0x499B6E03749B4bAF95F9E70EeD5355b138EA6C31",
+            token_decimals: 18,
+            token_earn: "TMK",
+            token_earn_icon: "/static/pic/token_icon/true.png",
+            reward_address: "0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
+            reward_decimals: 18,
+            index:0,
+            type:1//0 单币 1 LP
+        },
+        {
+            id: "MDX-USDT",
+            token: "MDX-USDT LP",
+            token_icon: "/static/pic/token_icon/digger.png",
+            token_symbol: "MDX-USDT LP",
+            token_address: "0x615E6285c5944540fd8bd921c9c8c56739Fd1E13",
+            token_decimals: 18,
+            token_earn: "TMK",
+            token_earn_icon: "/static/pic/token_icon/true.png",
+            reward_address: "0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
+            reward_decimals: 18,
+            index:0,
+            type:1//0 单币 1 LP
+        },
     ]
 }
