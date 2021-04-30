@@ -46,7 +46,7 @@
                 <img :src="item.img" class="middle-info-border" />
                 <img src="../assect/content/border-green.png" class="middle-info-moncard" />
               </div>
-              <div class="middle-info-right">
+              <div class="middle-info-rights">
                 <div class="info-right">
                   <span class="info-right-name">角色名称：</span>
                   <span>{{item.name}}</span>
@@ -82,7 +82,7 @@
                 <img :src="item.img"  class="middle-info-border"/>
                 <img src="../assect/content/border-bule.png" class="middle-info-moncard"/>
               </div>
-              <div class="middle-info-right">
+              <div class="middle-info-rights">
                 <div class="info-right">
                   <span class="info-right-name">角色名称：</span>
                   <span>{{item.name}}</span>
@@ -118,7 +118,7 @@
                 <img :src="item.img" class="middle-info-border"/>
                 <img src="../assect/content/border-yellow.png" class="middle-info-moncard" />
               </div>
-              <div class="middle-info-right">
+              <div class="middle-info-rights">
                 <div class="info-right">
                   <span class="info-right-name">角色名称：</span>
                   <span>{{item.name}}</span>
@@ -565,7 +565,7 @@ export default {
   height: 233px;
 }
 
-.middle-info-right {
+.middle-info-rights {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -644,7 +644,8 @@ export default {
   .content-top-info {
     margin-top: 40px;
     width: 301px;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding-bottom: 30px;
     //height: 153px;
   }
 
@@ -654,10 +655,17 @@ export default {
     line-height: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  .top-info-button {
+    width: 71px;
+    height: 35px;
   }
 
   .top-info-invs {
     padding-top: 10px;
+    line-height: 15px;
   }
 
   .middle-top {
