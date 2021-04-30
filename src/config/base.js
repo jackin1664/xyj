@@ -375,7 +375,7 @@ export default {
             token_earn_icon: "/static/pic/token_icon/true.png",
             reward_address: "0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
             reward_decimals: 18,
-            index:0,
+            index:1,
             type:1//0 单币 1 LP
         },
         {
@@ -389,7 +389,7 @@ export default {
             token_earn_icon: "/static/pic/token_icon/true.png",
             reward_address: "0x11f5d0E48Ce11DdD31C13846dA3c0eFAAf7D57c3",
             reward_decimals: 18,
-            index:0,
+            index:2,
             type:1//0 单币 1 LP
         },
     ]

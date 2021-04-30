@@ -249,7 +249,13 @@ export default {
       var local_address = await v.action.getAddress()
       //approve
       let contract = new v.myWeb3.eth.Contract(saleNFTAbi, reward_address)
-      const saleData = contract.methods.buyGftUseUSDT_user(1, this.inviteAddress).encodeABI();
+      let num = 0
+      if(this.canUseNum > 10 ){
+        num = 10
+      }else{
+        num = this.canUseNum
+      }
+      const saleData = contract.methods.buyGftUseRel_user(num).encodeABI();
       console.log('saledata', saleData)
       await v.myWeb3.eth.sendTransaction({
         from: local_address,
