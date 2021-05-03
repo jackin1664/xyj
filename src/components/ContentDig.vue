@@ -382,9 +382,13 @@ export default {
         // console.log(`totalBalance`, totalBalance,'resultTotalBalance',resultTotalBalance)
         //计算价值
         console.log(`get price`, i, resultTotalBalance, it.token)
-        let price = await priceContract.methods.getLpValue(i, resultTotalBalance).call()
-        console.log(`price`, i, resultTotalBalance, it.token, price)
-        it.tvl = new Decimal(price).div(Math.pow(10, 18)).toFixed(4)
+        if(resultTotalBalance == 0){
+          it.tvl = 0
+        }else{
+          let price = await priceContract.methods.getLpValue(i, resultTotalBalance).call()
+          console.log(`price`, i, resultTotalBalance, it.token, price)
+          it.tvl = new Decimal(price).div(Math.pow(10, 18)).toFixed(4)
+        }
         //获取一个TMK价格
         // let tmk1 = new Decimal(1).mul(Math.pow(10,18)).toFixed()
         // console.log(`get tmk price`)
