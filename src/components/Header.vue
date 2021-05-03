@@ -6,16 +6,16 @@
           <span @click="goHome">首页</span>
           <span @click="goBuy">购买</span>
           <span @click="goDig">挖矿</span>
-          <span>合成</span>
+          <span @click="comming">合成</span>
           <span @click="goStop()">商城</span>
-          <span>对战</span>
+          <span @click="comming">对战</span>
           <span @click="goPack()">我的卡牌</span>
         </div>
         <div class="header-icon">
           <span v-if="address">{{address}}</span>
           <span v-else>登录钱包</span>
           <img class="header-icon-two" src="../assect/header/icon2.png"/>
-          <img class="header-icon-two" src="../assect/header/icon3.png"/>
+<!--          <img class="header-icon-two" src="../assect/header/icon3.png"/>-->
         </div>
         <div @click="showTabs()" class="header-menu">
           <img src="../assect/header/menu.png"/>
@@ -71,6 +71,9 @@ export default {
     }
   },
   methods: {
+    async comming(){
+      this.$toast('敬请期待')
+    },
     async actionAddress() {
       this.address = await  this.action.getSortAddress()
     },

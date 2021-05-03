@@ -7,7 +7,7 @@
         <div class="content-top-info">
           <div class="top-icon"></div>
           <div class="top-icon-two"></div>
-          <div class="top-rule">规则</div>
+          <div @click="showDoc" class="top-rule">规则</div>
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-href.png"/>
             <span class="top-info-text invite-text">邀请链接：{{inviteLink}}</span>
@@ -19,7 +19,7 @@
           </div>
           <div class="top-info">
             <img class="top-info-icon" src="../assect/content/icon-num.png"/>
-            <span class="top-info-text">可是用卡包数量：{{ canUseNum }}</span>
+            <span class="top-info-text">可使用卡包数量：{{ canUseNum }}</span>
             <img @click="actionSale" class="top-info-button" src="../assect/content/icon-reward.png"/>
           </div>
         </div>
@@ -221,6 +221,10 @@ export default {
     }
   },
   methods: {
+    showDoc(){
+      this.$toastDoc('邀请说明','TMK 邀请说明：\n' +
+          '任何用户都可以邀请其他人购买卡牌，被邀请人购买卡牌就会记录邀请人一次种子，当种子到达10个的时候，就可以免费抽取一个卡牌。而且被邀请人只有购买一次的时候才有效果。')
+    },
     async bindCards(){
       let v = this
       this.huaguoshan = config.cards.filter((it) => {
@@ -250,6 +254,10 @@ export default {
       //approve
       let contract = new v.myWeb3.eth.Contract(saleNFTAbi, reward_address)
       let num = 0
+      if(this.canUseNum <= 0 ){
+        this.$toast('您没有可用卡包')
+        return false;
+      }
       if(this.canUseNum > 10 ){
         num = 10
       }else{
@@ -401,6 +409,7 @@ export default {
 }
 
 .top-rule {
+  cursor: pointer;
   padding-top: 20px;
   width: 90%;
   display: flex;

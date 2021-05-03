@@ -38,6 +38,7 @@
             </div>
             <div class="bottom-info-right">
               <span>角色：{{ item.name }}</span>
+              <span>编号：{{ item.tokenId }}</span>
               <span>战斗力：{{ item.power }}</span>
               <span>阵营：{{ item.camp }}</span>
               <span>武器战斗力：{{ item.weaponPower }}</span>
@@ -48,7 +49,7 @@
         <div v-else class="pack-bottom-info">
           <div v-for="item in weapons" :key="item.weapon" class="bottom-info">
             <div class="middle-info-card">
-              <!--              <img :src="item.img" class="middle-info-moncard"/>-->
+                            <img :src="item.img" class="middle-info-moncard"/>
               <img src="../assect/stop/boder.png" class="middle-info-border"/>
             </div>
             <div class="bottom-info-right">
@@ -166,6 +167,25 @@ export default {
         "5036": require('../assect/cards/5036.png'),
         "10036": require('../assect/cards/10036.png'),
       },
+      weaponimgs: {
+        "1": require('../assect/weapon/1.png'),
+        "2": require('../assect/weapon/2.png'),
+        "3": require('../assect/weapon/3.png'),
+        "4": require('../assect/weapon/4.png'),
+        "5": require('../assect/weapon/5.png'),
+        "6": require('../assect/weapon/6.png'),
+        "7": require('../assect/weapon/7.png'),
+        "8": require('../assect/weapon/8.png'),
+        "9": require('../assect/weapon/9.png'),
+        "10": require('../assect/weapon/10.png'),
+        "11": require('../assect/weapon/11.png'),
+        "12": require('../assect/weapon/12.png'),
+        "13": require('../assect/weapon/13.png'),
+        "14": require('../assect/weapon/14.png'),
+        "15": require('../assect/weapon/15.png'),
+        "16": require('../assect/weapon/16.png'),
+        "17": require('../assect/weapon/17.png')
+      },
       bgimgs: {
         "1": require('../assect/pack/green-border.png'),
         "2": require('../assect/pack/blue-border.png'),
@@ -269,7 +289,9 @@ export default {
       let weapons = await this.$http.getMyWeapon({address: local_address})
       weapons = weapons.data.data.weapon
       for (let it of weapons) {
-        it.name = config.weapon.find(a => a.type == it.weapon).name
+        let weapon = config.weapon.find(a => a.type == it.weapon)
+        it.name = weapon.name
+        it.img = this.weaponimgs[weapon.type.toString()]
       }
       this.weapons = weapons
       console.log('weapons', weapons)
@@ -705,6 +727,7 @@ export default {
 .pack {
   position: relative;
   width: 100%;
+  min-height: 600px;
   padding-bottom: 100px;
   background-image: url('../assect/content/bg.png');
   background-repeat: no-repeat;

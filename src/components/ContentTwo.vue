@@ -432,7 +432,7 @@ export default {
   td {
     text-align: center;
     //border: 1px solid #46494F;
-    padding: 3px 20px;
+    padding: 3px 0px;
   }
 
   td:nth-child(2) {
@@ -799,7 +799,7 @@ export default {
 
   .top-info-right-table {
     th {
-      padding: 5px 30px;
+      padding: 5px 10px;
     }
 
     td {

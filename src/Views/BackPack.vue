@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pack-content">
     <Header/>
     <ContentPack/>
     <Footer/>
@@ -17,5 +17,6 @@ export default {
 </script>
 
 <style scoped>
-
+.pack-content{
+}
 </style>

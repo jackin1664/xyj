@@ -95,8 +95,14 @@
         <div class="stop-bottom">
           <div class="stop-bottom-content">
             <div v-for="item in weapon" :key="item.type" class="stop-bottom-info">
-              <div class="stop-bottom-box">{{ item.name }}</div>
+              <div class="middle-info-card">
+                <img :src="item.img" class="middle-info-moncard"/>
+                <img src="../assect/stop/boder.png" class="middle-info-border"/>
+              </div>
               <div class="stop-right-info">
+                <div class="right-info">
+                  <span class="right-info-title">{{item.name}}</span>
+                </div>
                 <div class="right-info">
                   <span class="right-info-title">数量</span>
                   <div class="right-info-num">1</div>
@@ -202,7 +208,7 @@ export default {
       approveHUSDHash: '',
       detail: false,
       info: [[], []],
-      amount: [0, 0, 0, 0],
+      amount: [0, 1, 1, 1],
       weapon: [],
       cards: [],
       selectCard: 0,
@@ -247,6 +253,25 @@ export default {
         "5036": require('../assect/cards/5036.png'),
         "10036": require('../assect/cards/10036.png'),
       },
+      weaponimgs: {
+        "1": require('../assect/weapon/1.png'),
+        "2": require('../assect/weapon/2.png'),
+        "3": require('../assect/weapon/3.png'),
+        "4": require('../assect/weapon/4.png'),
+        "5": require('../assect/weapon/5.png'),
+        "6": require('../assect/weapon/6.png'),
+        "7": require('../assect/weapon/7.png'),
+        "8": require('../assect/weapon/8.png'),
+        "9": require('../assect/weapon/9.png'),
+        "10": require('../assect/weapon/10.png'),
+        "11": require('../assect/weapon/11.png'),
+        "12": require('../assect/weapon/12.png'),
+        "13": require('../assect/weapon/13.png'),
+        "14": require('../assect/weapon/14.png'),
+        "15": require('../assect/weapon/15.png'),
+        "16": require('../assect/weapon/16.png'),
+        "17": require('../assect/weapon/17.png')
+      }
     }
   },
   mounted() {
@@ -368,6 +393,7 @@ export default {
         i.power = info[0][i.type - 1]
         i.price = new Decimal(info[1][i.type - 1]).div(Math.pow(10, 18)).toFixed()
         i.sale = info[2][i.type - 1]
+        i.img = this.weaponimgs[i.type.toString()]
       }
 
       this.weapon = weapon
@@ -875,7 +901,7 @@ export default {
 }
 
 .stop-bottom-content {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;

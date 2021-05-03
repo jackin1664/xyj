@@ -1,5 +1,8 @@
 <template>
   <div class="picture">
+    <div class="dig-line">
+      <span>NFT质押挖矿正式上线啦！</span>
+    </div>
     <div class="picture-people-one">
       <img src="../assect/picture/people-one.png"/>
     </div>
@@ -58,7 +61,7 @@ name: "Picture"
   .picture-people-two {
     position: absolute;
     right: 9%;
-    top: 2%;
+    top: 4%;
     z-index: 9;
     img {
       width: 499px;
@@ -165,6 +168,27 @@ name: "Picture"
       img {
         width: 100%;
       }
+    }
+  }
+  .dig-line {
+    width: 100%;
+    height: 35px;
+    background: url("../assect/contentDig/bg-line.png") no-repeat;
+    background-size: 100% 100%;
+    line-height: 35px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+
+    span {
+      width: 70%;
+      font-size: 16px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #FFFFFF;
+      //margin-right: 20%;
     }
   }
 

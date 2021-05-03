@@ -18,7 +18,7 @@
             <span>矿池总质押卡牌数量：{{ totalStakingNFTAmount }}</span>
             <span>矿池总战力值：{{ totalStakingPower }}</span>
             <span>矿池合约地址：{{ rewardAddress }}</span>
-            <img class="rule-icon" src="../assect/contentDig/rule.png"/>
+            <img @click="showDoc" class="rule-icon" src="../assect/contentDig/rule.png"/>
           </div>
           <!--                右边-->
           <div class="one-bottom-right">
@@ -330,6 +330,10 @@ export default {
     this.getData()
   },
   methods: {
+    showDoc(){
+      this.$toastDoc('挖矿说明','TMK NFT挖矿规则如下：\n' +
+          'NFT卡牌拥有三个部分的能量值，1、基础能量值，这个是卡牌在盲盒抽奖的时候固定，2、一个挂载武器的能量值，3、一个是通过购买购物附加的能量值，通过宝物购买是对基础能力值的百分比进行添加，和武器无关。挖矿通过你所在矿池中的能力值总和的占比，进行分得每一个block的奖励。\n')
+    },
     openDialog() {
       this.getMyCard()
       this.showPledge = true
