@@ -1,7 +1,7 @@
 <template>
   <div class="pack">
     <div class="dig-line">
-      <span>NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
     </div>
     <div class="pack-container">
       <!--              上部分-->
@@ -37,9 +37,10 @@
               <img :src="item.bgimg" class="middle-info-border"/>
             </div>
             <div class="bottom-info-right">
-              <span>角色：{{ item.name }}</span>
+              <span>角色：{{ item.name }} <a @click="makeGive(item.tokenId)" class="unInstall" >赠送</a></span>
               <span>编号：{{ item.tokenId }}</span>
               <span>战斗力：{{ item.power }}</span>
+              <span>合成战斗力：{{ item.extPower }}</span>
               <span>阵营：{{ item.camp }}</span>
               <span>武器战斗力：{{ item.weaponPower }}</span>
               <span>武器：{{item.weaponName}}  <a @click="doUnInstall(item.tokenId)" class="unInstall" v-if="item.weaponPower" >卸载</a></span>
@@ -93,6 +94,14 @@
         </div>
       </div>
     </div>
+    <div v-if="showGive" class="wrap-bg">
+      <div @click="closeGive" class="wrap-close">
+        <img src="../assect/pack/toast-close.png" alt="">
+      </div>
+      <div class="wrap-title">卡牌赠送</div>
+      <div>赠送地址：<input v-model="giveAddress" class="right-info-num"/></div>
+      <div @click="doGive"  class="right-info-buy" style="margin: 0 auto">赠送</div>
+    </div>
   </div>
 </template>
 
@@ -100,11 +109,15 @@
 import '../css/base.less'
 import config from "@/config/base";
 const marketAbi = require('@/config/marketABI.json');
+const NFTAbi = require('@/config/nftABI.json');
 
 export default {
   name: "ContentPack",
   data() {
     return {
+      giveId:0,
+      giveAddress:'',
+      showGive: false,
       showPledge:false,
       showType: false,//类型显隐
       selectType: 1,
@@ -201,6 +214,13 @@ export default {
     this.getData()
   },
   methods: {
+    async makeGive(id){
+      this.giveId = id
+      this.showGive = true
+    },
+    closeGive(){
+      this.showGive = false
+    },
     async selectCardID(tokenID) {
       this.selectCard = tokenID
     },
@@ -238,6 +258,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('挂载成功')
       this.getMyWeapons()
       this.showPledge = false
     },
@@ -268,6 +289,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      this.$toast('卸载成功')
       this.getMyWeapons()
       this.showPledge = false
     },
@@ -316,6 +338,41 @@ export default {
       }
       this.cards = cards
       console.log('my weapons result', cards)
+    },
+    async doGive(){
+      if(!this.giveId || !this.giveAddress){
+        this.$toast('数据错误')
+        return false
+      }
+      let v = this
+      let token_address = config.nft
+      var local_address = await v.action.getAddress()
+      //approve
+      let contract = new v.myWeb3.eth.Contract(NFTAbi, token_address)
+      const approveData = contract.methods.transferFrom(local_address, this.giveAddress,this.giveId).encodeABI();
+      console.log('approvedata', approveData)
+
+      await v.myWeb3.eth.sendTransaction({
+        from: local_address,
+        to: token_address,
+        value: 0,
+        data: approveData
+      })
+          .on('transactionHash', function (hash) {
+            //hash
+            console.log(`hash: ` + hash)
+            v.$toast('交易已发出，等待结果。。。')
+            v.showGive = false
+            //server order
+          }).on('receipt', function (receipt) {
+            //receipt
+            console.log(receipt)
+          }).on('error', function (receipt) {
+            //receipt
+            console.log(receipt)
+          })
+      this.$toast('赠送成功')
+      this.getData()
     },
     async getData() {
       this.getMyCards()
@@ -995,6 +1052,7 @@ export default {
 }
 
 .right-info-buy {
+  cursor: pointer;
   width: 121px;
   height: 60px;
   margin-left: -8px;
@@ -1009,5 +1067,50 @@ export default {
   color: #FFD477;
 }
 
+.wrap-close{
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: -10px;
+
+}
+.wrap-bg {
+  font-size: 16px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background: url(../assect/pack/toast-bg.png);
+  background-color: #2C2C2C;
+  background-size: 100% 100%;
+  padding: 20px 40px;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  max-width: 40%;
+  color: #fff;
+  z-index: 22222;
+  line-height: 26px;
+}
+.wrap-title{
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+@media (max-width: 960px) {
+  .wrap-bg{
+    max-width: 80%;
+    padding: 10px 10px;
+  }
+}
+.right-info-num {
+  width: 260px;
+  height: 28px;
+  line-height: 28px;
+  background: url("../assect/stop/bg-box.png") no-repeat;
+  background-size: 100% 100%;
+  color: #FFD477;
+  text-align: left;
+  margin-left: 5px;
+  padding-left: 4px;
+}
 
 </style>

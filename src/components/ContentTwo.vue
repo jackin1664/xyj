@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="dig-line">
-      <span>NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
     </div>
     <div class="content-container">
 
@@ -154,6 +154,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('购买成功')
       this.getData()
     },
     async actionHUSDApprove() {
@@ -185,6 +186,7 @@ export default {
         //receipt
         console.log(receipt)
       })
+      v.$toast('授权成功')
       this.getData()
     },
     async checkHUSDApproved() {

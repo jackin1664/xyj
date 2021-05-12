@@ -1,7 +1,7 @@
     <template>
       <div class="ple">
         <div class="dig-line">
-          <span>NFT质押挖矿正式上线啦！</span>
+          <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
         </div>
         <div class="ple-container">
           <!--              上部分-->

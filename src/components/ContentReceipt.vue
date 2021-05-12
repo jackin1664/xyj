@@ -1,7 +1,7 @@
       <template>
         <div class="rec">
           <div class="dig-line">
-            <span>NFT质押挖矿正式上线啦！</span>
+            <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
           </div>
           <!--          内容-->
           <div class="rec-container">
@@ -165,6 +165,7 @@
                   //receipt
                   console.log(receipt)
                 })
+            this.$toast('授权成功')
             this.getData()
           },
           async checkHUSDApproved() {
@@ -212,6 +213,7 @@
                   console.log(receipt)
                 })
             this.showDeposit = false
+            this.$toast('质押成功')
             this.getData()
           },
           //质押
@@ -248,6 +250,7 @@
                   //receipt
                   console.log(receipt)
                 })
+            this.$toast('提取奖励成功')
             this.getData()
           },
           //提取本金
@@ -279,6 +282,7 @@
                   console.log(receipt)
                 })
             this.showWithdraw = false
+            this.$toast('提取成功')
             this.getData()
           },
           async getBalance(){

@@ -2,10 +2,10 @@
   <!--            第三部分-->
   <div class="footer">
     <div class="content-bottom">
-      <img src="../assect/content/icon-tw.png" class="bottom-btn"/>
-      <img src="../assect/content/icon-te.png" class="bottom-btn"/>
-      <img src="../assect/content/icon-do.png" class="bottom-btn"/>
-      <img src="../assect/content/icon-au.png" class="bottom-btn"/>
+      <div class="more-link">Twitter</div>
+      <div class="more-link">Telegram</div>
+      <div class="more-link">Document</div>
+      <div class="more-link">Audit</div>
     </div>
   </div>
 </template>
@@ -82,5 +82,16 @@ name: "Footer",
 
 }
 
+.more-link{
+  margin-top: 10px;
+  cursor: pointer;
+  width: 122px;
+  height: 59px;
+  text-align: center;
+  line-height: 59px;
+  color: #fff;
+  background: url(../assect/contentTwo/btn-grey.png);
+  background-size: 100% 100%;
+}
 
 </style>

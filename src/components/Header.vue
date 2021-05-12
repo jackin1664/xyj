@@ -14,7 +14,7 @@
         <div class="header-icon">
           <span v-if="address">{{address}}</span>
           <span v-else>登录钱包</span>
-          <img class="header-icon-two" src="../assect/header/icon2.png"/>
+<!--          <img class="header-icon-two" src="../assect/header/icon2.png"/>-->
 <!--          <img class="header-icon-two" src="../assect/header/icon3.png"/>-->
         </div>
         <div @click="showTabs()" class="header-menu">

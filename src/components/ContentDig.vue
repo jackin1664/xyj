@@ -1,7 +1,7 @@
 <template>
   <div class="dig">
     <div class="dig-line">
-      <span>NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
     </div>
     <div class="dig-container">
       <!--              第一部分-->
@@ -454,7 +454,6 @@ export default {
             //hash
             console.log(`hash: ` + hash)
             v.$toast('交易已发出，等待结果。。。')
-            v.timer = setInterval(v.checkApproved, 1000);
             //server order
           }).on('receipt', function (receipt) {
             //receipt
@@ -463,6 +462,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('提取成功')
       this.getData()
     },
     async getRewardAddress() {
@@ -567,6 +567,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('取消质押成功')
       this.getData()
     },
     async getPerDayReward() {
@@ -605,6 +606,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('提取成功')
       this.getData()
     },
     //质押
@@ -640,6 +642,7 @@ export default {
             console.log(receipt)
           })
       this.showPledge = false
+      this.$toast('质押成功')
       this.getData()
     },
     async getNFTSaleAmount() {
@@ -684,6 +687,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      this.$toast('购买成功')
       this.getData()
     },
     async actionHUSDApprove() {
@@ -715,6 +719,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      this.$toast('授权成功')
       this.getData()
     },
     async checkHUSDApproved() {
@@ -1161,7 +1166,7 @@ export default {
   align-items: center;
 
   span {
-    width: 70%;
+    width: 1000px;
     font-size: 16px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
@@ -1170,6 +1175,13 @@ export default {
   }
 }
 
+@media (max-width: 960px) {
+  .dig-line {
+    span {
+      width: 100%;
+    }
+  }
+}
 //第一部分
 
 .dig-one-top {

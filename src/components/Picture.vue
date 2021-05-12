@@ -1,7 +1,7 @@
 <template>
   <div class="picture">
     <div class="dig-line">
-      <span>NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
     </div>
     <div class="picture-people-one">
       <img src="../assect/picture/people-one.png"/>
@@ -183,7 +183,7 @@ name: "Picture"
     z-index: 9999;
 
     span {
-      width: 70%;
+      width: 1000px;
       font-size: 16px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
@@ -192,4 +192,11 @@ name: "Picture"
     }
   }
 
+  @media (max-width: 960px) {
+    .dig-line {
+      span {
+        width: 100%;
+      }
+    }
+  }
 </style>

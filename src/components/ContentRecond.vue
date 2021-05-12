@@ -1,7 +1,7 @@
     <template>
       <div class="rec">
         <div class="dig-line">
-          <span>NFT质押挖矿正式上线啦！</span>
+          <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
         </div>
         <div class="rec-container">
           <div class="rec-title">交易记录</div>

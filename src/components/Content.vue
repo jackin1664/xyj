@@ -285,6 +285,7 @@ export default {
             //receipt
             console.log(receipt)
           })
+      v.$toast('抽奖成功')
       this.getAllData()
 
     },
@@ -691,19 +692,19 @@ export default {
 
   .middle-green {
     width: 85%;
-    background: url("../assect/content/h-border-green.png") no-repeat;
+    background: url("../assect/content/border-green-h5.png") no-repeat;
     background-size: 100% 100%;
   }
 
   .middle-bule {
     width: 85%;
-    background: url("../assect/content/h-border-bule.png") no-repeat;
+    background: url("../assect/content/border-blue-h5.png") no-repeat;
     background-size: 100% 100%;
   }
 
   .middle-yellow {
     width: 85%;
-    background: url("../assect/content/h-border-yellow.png") no-repeat;
+    background: url("../assect/content/border-yellow-h5.png") no-repeat;
     background-size: 100% 100%;
   }
 

@@ -1,343 +1,352 @@
 
-        .dig-line {
-          width: 100%;
-          height: 35px;
-          background: url("../assect/contentDig/bg-line.png") no-repeat;
-          background-size: 100% 100%;
-          line-height: 35px;
-          text-align: right;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+.dig-line {
+  width: 100%;
+  height: 35px;
+  background: url("../assect/contentDig/bg-line.png") no-repeat;
+  background-size: 100% 100%;
+  line-height: 35px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-          span {
-            width: 70%;
-            font-size: 16px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            color: #FFFFFF;
-            //margin-right: 20%;
-          }
-        }
+  span {
+    width: 1000px;
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+    //margin-right: 20%;
+  }
+}
 
-        //弹窗
+@media (max-width: 960px) {
+  .dig-line {
+    span {
+      width: 100%;
+    }
+  }
+}
 
-        .dialog {
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          background: #222222;
-          opacity: 0.9;
-          z-index: 100;
-          top: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-        }
+//弹窗
 
-        .dialog-content {
-          width: 532px;
-          height: 362px;
-          background: url("../assect/dialog/bg.png") no-repeat;
-          background-size: 100% 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-        }
+.dialog {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #222222;
+  opacity: 0.9;
+  z-index: 100;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-        .dialog-contents {
-          width: 532px;
-          height: 137px;
-          background: url("../assect/dialog/bg.png") no-repeat;
-          background-size: 100% 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          position: relative;
+.dialog-content {
+  width: 532px;
+  height: 362px;
+  background: url("../assect/dialog/bg.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-        }
+.dialog-contents {
+  width: 532px;
+  height: 137px;
+  background: url("../assect/dialog/bg.png") no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 
-
-        .dialog-error {
-          cursor: pointer;
-          width: 32px;
-          height: 33px;
-          background: url("../assect/dialog/error.png") no-repeat;
-          background-size: 100% 100%;
-          position: absolute;
-          right: -3px;
-          top: -10px;
-        }
-
-        .dialog-card {
-          width: 201px;
-          height: 304px;
-        }
-
-        .dialog-right {
-          margin-left: 30px;
-        }
-
-        .dialog-text {
-          font-size: 16px;
-          font-family: PingFangSC-Regular, PingFang SC;
-          font-weight: 400;
-          color: #FFFFFF;
-          padding-top: 19px;
-        }
-
-        .dialog-line {
-          width: 263px;
-          height: 3px;
-          margin-top: 19px;
-          //margin-top: 19px;
-        }
-
-        .dialog-btn {
-          margin-top: 39px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-        }
-
-        .gua-btn {
-          cursor: pointer;
-          width: 121px;
-          height: 60px;
-          background: url("../assect/btn/red-btn.png")no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
-          line-height: 60px;
-          font-size: 16px;
-          font-family: PingFangSC-Heavy, PingFang SC;
-          font-weight: 800;
-          color: #FFFFFF;
-        }
-
-        .zhi-btn {
-          cursor: pointer;
-          width: 121px;
-          height: 60px;
-          background: url("../assect/btn/blue-btn.png")no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
-          line-height: 60px;
-          font-size: 16px;
-          font-family: PingFangSC-Heavy, PingFang SC;
-          font-weight: 800;
-          color: #FFFFFF;
-        }
-
-        .zhuan-btn {
-          cursor: pointer;
-          width: 122px;
-          height: 59px;
-          background: url("../assect/btn/gray-btn.png")no-repeat;
-          background-size: 100% 100%;
-          font-size: 16px;
-          font-family: PingFangSC-Heavy, PingFang SC;
-          font-weight: 800;
-          color: #FFFFFF;
-          text-align: center;
-          line-height: 59px;
-        }
-
-        .yellow-btn {
-          cursor: pointer;
-          width: 121px;
-          height: 60px;
-          background: url("../assect/btn/yellow-btn.png")no-repeat;
-          background-size: 100% 100%;
-          font-size: 16px;
-          font-family: PingFangSC-Heavy, PingFang SC;
-          font-weight: 800;
-          color: #222222;
-          text-align: center;
-          line-height: 60px;
-        }
-
-        .yellow2-btn {
-          cursor: pointer;
-          width: 255px;
-          height: 45px;
-          background: url("../assect/btn/yellow2-btn.png")no-repeat;
-          background-size: 100% 100%;
-          font-size: 16px;
-          font-family: PingFangSC-Semibold, PingFang SC;
-          font-weight: 600;
-          color: #222222;
-          text-align: center;
-          line-height: 45px;
-        }
+}
 
 
-        .green-btn {
-          cursor: pointer;
-          width: 255px;
-          height: 45px;
-          background: url("../assect/btn/green-btn.png")no-repeat;
-          background-size: 100% 100%;
-          font-size: 16px;
-          font-family: PingFangSC-Semibold, PingFang SC;
-          font-weight: 600;
-          color: #222222;
-          text-align: center;
-          line-height: 45px;
-        }
+.dialog-error {
+  cursor: pointer;
+  width: 32px;
+  height: 33px;
+  background: url("../assect/dialog/error.png") no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  right: -3px;
+  top: -10px;
+}
+
+.dialog-card {
+  width: 201px;
+  height: 304px;
+}
+
+.dialog-right {
+  margin-left: 30px;
+}
+
+.dialog-text {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  padding-top: 19px;
+}
+
+.dialog-line {
+  width: 263px;
+  height: 3px;
+  margin-top: 19px;
+  //margin-top: 19px;
+}
+
+.dialog-btn {
+  margin-top: 39px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.gua-btn {
+  cursor: pointer;
+  width: 121px;
+  height: 60px;
+  background: url("../assect/btn/red-btn.png") no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px;
+  font-family: PingFangSC-Heavy, PingFang SC;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.zhi-btn {
+  cursor: pointer;
+  width: 121px;
+  height: 60px;
+  background: url("../assect/btn/blue-btn.png") no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px;
+  font-family: PingFangSC-Heavy, PingFang SC;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.zhuan-btn {
+  cursor: pointer;
+  width: 122px;
+  height: 59px;
+  background: url("../assect/btn/gray-btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 16px;
+  font-family: PingFangSC-Heavy, PingFang SC;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 59px;
+}
+
+.yellow-btn {
+  cursor: pointer;
+  width: 121px;
+  height: 60px;
+  background: url("../assect/btn/yellow-btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 16px;
+  font-family: PingFangSC-Heavy, PingFang SC;
+  font-weight: 800;
+  color: #222222;
+  text-align: center;
+  line-height: 60px;
+}
+
+.yellow2-btn {
+  cursor: pointer;
+  width: 255px;
+  height: 45px;
+  background: url("../assect/btn/yellow2-btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #222222;
+  text-align: center;
+  line-height: 45px;
+}
 
 
-        .black-btn {
-          cursor: pointer;
-          width: 102px;
-          height: 51px;
-          background: url("../assect/btn/black-btn.png")no-repeat;
-          background-size: 100% 100%;
-          font-size: 16px;
-          font-family: PingFangSC-Heavy, PingFang SC;
-          font-weight: 800;
-          color: #FFFFFF;
-          text-align: center;
-          line-height: 51px;
-        }
+.green-btn {
+  cursor: pointer;
+  width: 255px;
+  height: 45px;
+  background: url("../assect/btn/green-btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #222222;
+  text-align: center;
+  line-height: 45px;
+}
 
 
-        //边框
-
-        .middle-info-card {
-          position: relative;
-        }
-
-        .middle-info-cards {
-          opacity: 0.6;
-        }
-
-        .middle-info-moncard {
-          width: 154px;
-          height: 233px;
-          position: absolute;
-          left: 0;
-          top: 0;
-          z-index: 9;
-        }
-        .middle-info-moncards {
-          opacity: 0.5;
-        }
-
-        .middle-info-borders {
-          opacity: 0.5;
-        }
-
-        .middle-info-border {
-          width: 154px;
-          height: 233px;
-          position: relative;
-          z-index: 99;
-          cursor: pointer;
-        }
-
-        //.middle-info-right {
-        //  width: 60px;
-        //  height: 57px;
-        //  position: absolute;
-        //  left: 30%;
-        //  top: 40%;
-        //  z-index: 100;
-        //  cursor: pointer;
-        //}
+.black-btn {
+  cursor: pointer;
+  width: 102px;
+  height: 51px;
+  background: url("../assect/btn/black-btn.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 16px;
+  font-family: PingFangSC-Heavy, PingFang SC;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 51px;
+}
 
 
-        @media (max-width: 960px) {
+//边框
 
-          .middle-info-right {
-            width: 30px;
-            height: 30px;
-          }
+.middle-info-card {
+  position: relative;
+}
 
-          .middle-info-border {
-            width: 130px;
-            height: 210px;
-          }
+.middle-info-cards {
+  opacity: 0.6;
+}
 
+.middle-info-moncard {
+  width: 154px;
+  height: 233px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
 
-          .middle-info-moncard {
-            width: 130px;
-            height: 210px;
-          }
+.middle-info-moncards {
+  opacity: 0.5;
+}
 
+.middle-info-borders {
+  opacity: 0.5;
+}
 
-          .dig-line {
-            span {
-              text-align: center;
-            }
-          }
+.middle-info-border {
+  width: 154px;
+  height: 233px;
+  position: relative;
+  z-index: 99;
+  cursor: pointer;
+}
 
-          .dialog-contents {
-            width: 90%
-          }
-
-          .dialog-content {
-            width: 90%
-          }
-
-          .dialog-card {
-            width: 100px;
-            height: 152px
-          }
-
-          .dialog-btn {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top: 30px;
-          }
-
-          .dialog-right {
-            //margin-left: 15px;
-          }
-
-          .gua-btn {
-            cursor: pointer;
-            width: 65px;
-            height: 30px;
-            line-height: 30px;
-            font-size: 12px;
-          }
-
-          .zhi-btn {
-            width: 65px;
-            height: 33px;
-            line-height: 33px;
-            font-size: 12px;
-            cursor: pointer;
-          }
-
-          .yellow-btn {
-            cursor: pointer;
-            width: 65px;
-            height: 33px;
-            line-height: 33px;
-            font-size: 12px;
-          }
+//.middle-info-right {
+//  width: 60px;
+//  height: 57px;
+//  position: absolute;
+//  left: 30%;
+//  top: 40%;
+//  z-index: 100;
+//  cursor: pointer;
+//}
 
 
-          .zhuan-btn {
-            width: 81px;
-            height: 33px;
-            line-height: 33px;
-            font-size: 12px;
-          }
+@media (max-width: 960px) {
 
-          .yellow2-btn {
-            width: 122px;
-          }
+  .middle-info-right {
+    width: 30px;
+    height: 30px;
+  }
+
+  .middle-info-border {
+    width: 130px;
+    height: 210px;
+  }
 
 
-          .dialog-line {
-            width: 130px
-          }
+  .middle-info-moncard {
+    width: 130px;
+    height: 210px;
+  }
 
-        }
+
+  .dig-line {
+    span {
+      text-align: center;
+    }
+  }
+
+  .dialog-contents {
+    width: 90%
+  }
+
+  .dialog-content {
+    width: 90%
+  }
+
+  .dialog-card {
+    width: 100px;
+    height: 152px
+  }
+
+  .dialog-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .dialog-right {
+    //margin-left: 15px;
+  }
+
+  .gua-btn {
+    cursor: pointer;
+    width: 65px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+
+  .zhi-btn {
+    width: 65px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .yellow-btn {
+    cursor: pointer;
+    width: 65px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+  }
+
+
+  .zhuan-btn {
+    width: 81px;
+    height: 33px;
+    line-height: 33px;
+    font-size: 12px;
+  }
+
+  .yellow2-btn {
+    width: 122px;
+  }
+
+
+  .dialog-line {
+    width: 130px
+  }
+
+}

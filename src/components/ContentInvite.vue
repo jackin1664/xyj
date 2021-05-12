@@ -1,7 +1,7 @@
       <template>
         <div class="inv">
           <div class="dig-line">
-            <span>NFT质押挖矿正式上线啦！</span>
+            <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
           </div>
           <div class="inv-container">
             <div class="inv-title">邀请好友</div>
