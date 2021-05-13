@@ -34,7 +34,7 @@
                 <div class="dialog-error" @click="closeDialog()"></div>
               <div class="dialog-rec">
                 <img class="dialog-right-s" src="../assect/dialog/green-right.png"/>
-                <div class="dialog-rec-text">Approve TMK/MDX LP Success</div>
+                <div class="dialog-rec-text">Approve MC/MDX LP Success</div>
                 <div class="yellow2-btn">关闭</div>
               </div>
             </div>

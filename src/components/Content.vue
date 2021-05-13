@@ -222,7 +222,7 @@ export default {
   },
   methods: {
     showDoc(){
-      this.$toastDoc('邀请说明','TMK 邀请说明：\n' +
+      this.$toastDoc('邀请说明','MC 邀请说明：\n' +
           '任何用户都可以邀请其他人购买卡牌，被邀请人购买卡牌就会记录邀请人一次种子，当种子到达10个的时候，就可以免费抽取一个卡牌。而且被邀请人只有购买一次的时候才有效果。')
     },
     async bindCards(){

@@ -75,7 +75,7 @@
           <div class="ple-bottom">
             <!--            下部分-->
             <div class="ple-green">
-              <div v-for="item in cards" :key="item.thirdId" class="ple-green-content">
+              <div v-for="item in cards" :key="item.tokenId" class="ple-green-content">
                 <div v-if="item.tokenId != selectCard" @click="selectCardID(item.tokenId)" class="middle-info-card">
                   <img :src="item.img" class="middle-info-moncard"/>
                   <img src="../assect/content/border-green.png" class="middle-info-border"/>

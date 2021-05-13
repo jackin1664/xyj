@@ -38,11 +38,11 @@
               <div class="bit-right-num">
                 <div class="right-num">
                   <div class="num-title">矿池每天产出</div>
-                  <div class="num-text">{{ perDayReward }}TMK</div>
+                  <div class="num-text">{{ perDayReward }}MC</div>
                 </div>
                 <div class="right-num right-num-s">
                   <div class="num-title">可提取的奖励</div>
-                  <div class="num-text">{{ myReward }}TMK</div>
+                  <div class="num-text">{{ myReward }}MC</div>
                 </div>
                 <div class="right-num right-num-ss">
                   <div class="num-title">APY</div>
@@ -74,11 +74,11 @@
         <div class="dig-middle-content">
           <div class="middle-content-info">
             <div class="mid-info-title">奖励锁定数量</div>
-            <div class="mid-info-num">{{ lockReward }}TMK</div>
+            <div class="mid-info-num">{{ lockReward }}MC</div>
           </div>
           <div class="middle-content-info">
             <div class="mid-info-title">我的奖励数量</div>
-            <div class="mid-info-num">{{ lockMyReward }}TMK</div>
+            <div class="mid-info-num">{{ lockMyReward }}MC</div>
             <div @click="actionWithdrawMyLockReward" class="yellow2-btn mid-btn">领取</div>
           </div>
         </div>
@@ -124,12 +124,12 @@
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{ item.perDay }} TMK</span>
+                <span class="two-info-text">{{ item.perDay }} MC</span>
               </div>
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td">
-                <span class="two-info-text">{{ item.perMonth }} TMK</span>
+                <span class="two-info-text">{{ item.perMonth }} MC</span>
               </div>
             </div>
             <div class="two-bottom-info">
@@ -144,7 +144,7 @@
             </div>
             <div class="two-bottom-info">
               <div class="two-info-td two-info-tds">
-                <span class="two-info-text">{{ item.reward }} TMK</span>
+                <span class="two-info-text">{{ item.reward }} MC</span>
                 <router-link class="two-blue-bg" :to="`/receipt/${item.id}`">质押</router-link>
               </div>
             </div>
@@ -166,8 +166,8 @@
                   <div class="con-left-num">${{ item.tvl }}</div>
                 </div>
                 <div class="hinfo-con-left">
-                  <div class="con-left-title">{{ item.reward }} TMK</div>
-                  <div class="con-left-num">{{ item.perDay }} TMK</div>
+                  <div class="con-left-title">{{ item.reward }} MC</div>
+                  <div class="con-left-num">{{ item.perDay }} MC</div>
                 </div>
                 <div class="hinfo-con-left">{{ item.apy }}%</div>
               </div>
@@ -331,7 +331,7 @@ export default {
   },
   methods: {
     showDoc(){
-      this.$toastDoc('挖矿说明','TMK NFT挖矿规则如下：\n' +
+      this.$toastDoc('挖矿说明','MC NFT挖矿规则如下：\n' +
           'NFT卡牌拥有三个部分的能量值，1、基础能量值，这个是卡牌在盲盒抽奖的时候固定，2、一个挂载武器的能量值，3、一个是通过购买购物附加的能量值，通过宝物购买是对基础能力值的百分比进行添加，和武器无关。挖矿通过你所在矿池中的能力值总和的占比，进行分得每一个block的奖励。\n')
     },
     openDialog() {

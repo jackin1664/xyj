@@ -27,7 +27,7 @@
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[0][0] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][0] }}MC</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[0][1] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][1] }}MC</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ info[0][2] }}TMK</div>
+                  <div class="right-info-tmk">{{ info[0][2] }}MC</div>
                 </div>
                 <div class="right-info">
                   <div v-if="!husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="right-info">
                   <img class="right-info-money" src="../assect/stop/money.png"/>
-                  <div class="right-info-tmk">{{ item.price }}TMK</div>
+                  <div class="right-info-tmk">{{ item.price }}MC</div>
                 </div>
                 <div class="right-info">
                   <div v-if="item.sale == 0 && !husdApproved" @click="actionHUSDApprove" class="right-info-buy">授权</div>
@@ -144,7 +144,7 @@
           <img class="dialog-line" src="../assect/dialog/line.png"/>
           <div class="right-info">
             <img class="right-info-money" src="../assect/stop/money.png"/>
-            <div class="right-info-tmk">100TMK</div>
+            <div class="right-info-tmk">100MC</div>
           </div>
           <img class="dialog-line" src="../assect/dialog/line.png"/>
           <div class="dialog-btn">
@@ -168,7 +168,7 @@
           <div class="ple-bottom">
             <!--            下部分-->
             <div class="ple-green">
-              <div v-for="item in cards" :key="item.thirdId" class="ple-green-content">
+              <div v-for="item in cards" :key="item.tokenId" class="ple-green-content">
                 <div v-if="item.tokenId != selectCard" @click="selectCardID(item.tokenId)" class="middle-info-card">
                   <img :src="item.img" class="middle-info-moncard"/>
                   <img src="../assect/content/border-green.png" class="middle-info-border"/>
@@ -293,6 +293,7 @@ export default {
       var local_address = await v.action.getAddress()
       let cards = await this.$http.getyMyCard({address: local_address})
       cards = cards.data.data.card
+      console.log(`cards`,cards)
       for (let it of cards) {
         it.img = this.imgs[it.thirdId.toString()]
         it.name = config.cards.find(a => a.type == it.thirdId).name
