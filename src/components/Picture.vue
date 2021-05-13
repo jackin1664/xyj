@@ -60,12 +60,11 @@ name: "Picture"
 
   .picture-people-two {
     position: absolute;
-    right: 9%;
-    top: 4%;
+    right: 18%;
+    top: 14%;
     z-index: 9;
     img {
-      width: 499px;
-      height: 813px;
+      width: 379px;
     }
   }
 
@@ -121,10 +120,10 @@ name: "Picture"
     .picture-people-twos {
       display: block;
       position: absolute;
-      right: 0;
-      top: 2%;
+      right: 0%;
+      top: 10%;
       z-index: 9;
-      width: 40%;
+      width: 30%;
       img {
         width: 100%;
         //height: 402px;

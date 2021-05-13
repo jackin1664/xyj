@@ -317,11 +317,11 @@ export default {
             type:9,
         },
         {
-            name:"银鼠",
+            name:"王母杖",
             type:10,
         },
         {
-            name:"银枪",
+            name:"哪吒银枪",
             type:11,
         },
         {
@@ -337,11 +337,11 @@ export default {
             type:14,
         },
         {
-            name:"金钢琢",
+            name:"紫金葫芦",
             type:15,
         },
         {
-            name:"青牛",
+            name:"拂尘",
             type:16,
         },
         {
