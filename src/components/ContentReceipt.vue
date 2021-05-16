@@ -136,7 +136,7 @@
             this.amountWithdraw = this.myStaking
           },
           async actionHUSDApprove() {
-            this.showApprove=true;
+            // this.showApprove=true;
             let v = this
             let reward_address = v.token_data.reward_address
             let token_address = v.token_data.token_address

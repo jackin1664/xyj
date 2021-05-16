@@ -277,6 +277,17 @@ export default {
   mounted() {
     this.getData()
   },
+  computed: {
+    account_default_address() {
+      return this.$store.state.account.default_address
+    },
+  },
+  watch: {
+    //检测到获取了地址
+    account_default_address() {
+      this.getData()
+    }
+  },
   methods: {
     async selectCardID(tokenID) {
       this.selectCard = tokenID

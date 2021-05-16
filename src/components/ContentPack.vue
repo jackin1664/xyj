@@ -54,7 +54,7 @@
               <img src="../assect/stop/boder.png" class="middle-info-border"/>
             </div>
             <div class="bottom-info-right">
-              <span>名称：{{ item.name }}</span>
+              <span>名称：{{ item.name }} <a @click="makeGiveWeapon(item.weapon)" class="unInstall" >赠送</a></span>
               <span>战斗力：{{ item.weaponPower }}</span>
               <div @click="actionInstall(item.weapon)" class="right-info-buy">挂载</div>
             </div>
@@ -102,6 +102,14 @@
       <div>赠送地址：<input v-model="giveAddress" class="right-info-num"/></div>
       <div @click="doGive"  class="right-info-buy" style="margin: 0 auto">赠送</div>
     </div>
+    <div v-if="showGiveWeapon" class="wrap-bg">
+      <div @click="closeGiveWeapon" class="wrap-close">
+        <img src="../assect/pack/toast-close.png" alt="">
+      </div>
+      <div class="wrap-title">武器赠送</div>
+      <div>赠送地址：<input v-model="giveWeaponAddress" class="right-info-num"/></div>
+      <div @click="doGiveWeapon"  class="right-info-buy" style="margin: 0 auto">赠送</div>
+    </div>
   </div>
 </template>
 
@@ -115,6 +123,9 @@ export default {
   name: "ContentPack",
   data() {
     return {
+      showGiveWeapon:false,
+      giveWeaponAddress:'',
+      giveWeaponId:0,
       giveId:0,
       giveAddress:'',
       showGive: false,
@@ -218,8 +229,15 @@ export default {
       this.giveId = id
       this.showGive = true
     },
+    async makeGiveWeapon(id){
+      this.giveWeaponId = id
+      this.showGiveWeapon = true
+    },
     closeGive(){
       this.showGive = false
+    },
+    closeGiveWeapon(){
+      this.showGiveWeapon = false
     },
     async selectCardID(tokenID) {
       this.selectCard = tokenID
@@ -363,6 +381,42 @@ export default {
             console.log(`hash: ` + hash)
             v.$toast('交易已发出，等待结果。。。')
             v.showGive = false
+            //server order
+          }).on('receipt', function (receipt) {
+            //receipt
+            console.log(receipt)
+          }).on('error', function (receipt) {
+            //receipt
+            console.log(receipt)
+          })
+      this.$toast('赠送成功')
+      this.getData()
+    },
+    async doGiveWeapon(){
+      alert(this.giveWeaponId)
+      if(!this.giveWeaponId || !this.giveWeaponAddress){
+        this.$toast('数据错误')
+        return false
+      }
+      let v = this
+      let token_address = config.nft
+      var local_address = await v.action.getAddress()
+      //approve
+      let contract = new v.myWeb3.eth.Contract(NFTAbi, token_address)
+      const approveData = contract.methods.tranferWeapoon(local_address, this.giveWeaponId,1).encodeABI();
+      console.log('approvedata', approveData)
+
+      await v.myWeb3.eth.sendTransaction({
+        from: local_address,
+        to: token_address,
+        value: 0,
+        data: approveData
+      })
+          .on('transactionHash', function (hash) {
+            //hash
+            console.log(`hash: ` + hash)
+            v.$toast('交易已发出，等待结果。。。')
+            v.showGiveWeapon = false
             //server order
           }).on('receipt', function (receipt) {
             //receipt

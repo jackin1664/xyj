@@ -3,13 +3,13 @@
     <div class="header-container">
         <img class="header-logo" src="../assect/header/logo.png"/>
         <div class="header-list">
-          <a href="/"><span >首页</span></a>
-          <a href="/buy"><span>购买</span></a>
-          <a href="/dig"><span >挖矿</span></a>
+          <span @click="goHome">首页</span>
+          <span @click="goBuy">购买</span>
+          <span @click="goDig" >挖矿</span>
           <span @click="comming">合成</span>
-          <a href="/stop"><span >商城</span></a>
+          <span @click="goStop">商城</span>
           <span @click="comming">对战</span>
-          <a href="/pack"><span >我的卡牌</span></a>
+          <span @click="goPack">我的卡牌</span>
         </div>
         <div class="header-icon">
           <span v-if="address">{{address}}</span>
@@ -21,19 +21,19 @@
           <img src="../assect/header/menu.png"/>
         </div>
         <div v-show="showTab" class="header-tab">
-          <a href="/"><div class="header-tab-title">首页</div></a>
+          <div @click="goHome" class="header-tab-title">首页</div>
             <img src="../assect/header/line.png"/>
-          <a href="/buy"><div  class="header-tab-title">购买</div></a>
+          <div  @click="goBuy" class="header-tab-title">购买</div>
             <img src="../assect/header/line.png"/>
-          <a href="/dig"><div  class="header-tab-title">挖矿</div></a>
+          <div @click="goDig" class="header-tab-title">挖矿</div>
             <img src="../assect/header/line.png"/>
             <div class="header-tab-title">合成</div>
             <img src="../assect/header/line.png"/>
-          <a href="/stop"><div  class="header-tab-title">商城</div></a>
+          <div @click="goStop" class="header-tab-title">商城</div>
             <img src="../assect/header/line.png"/>
             <div class="header-tab-title">对战</div>
             <img src="../assect/header/line.png"/>
-          <a href="/pack"><div  class="header-tab-title">我的卡牌</div></a>
+          <div @click="goPack" class="header-tab-title">我的卡牌</div>
             <img src="../assect/header/line.png"/>
           <div class="header-h-icon">
             <span v-if="address">{{address}}</span>
