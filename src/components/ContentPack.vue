@@ -393,7 +393,6 @@ export default {
       this.getData()
     },
     async doGiveWeapon(){
-      alert(this.giveWeaponId)
       if(!this.giveWeaponId || !this.giveWeaponAddress){
         this.$toast('数据错误')
         return false
@@ -403,7 +402,7 @@ export default {
       var local_address = await v.action.getAddress()
       //approve
       let contract = new v.myWeb3.eth.Contract(NFTAbi, token_address)
-      const approveData = contract.methods.tranferWeapoon(local_address, this.giveWeaponId,1).encodeABI();
+      const approveData = contract.methods.tranferWeapoon(this.giveWeaponAddress, this.giveWeaponId,1).encodeABI();
       console.log('approvedata', approveData)
 
       await v.myWeb3.eth.sendTransaction({
