@@ -2,9 +2,19 @@
   <!--            第三部分-->
   <div class="footer">
     <div class="content-bottom">
-      <div class="more-link">Twitter</div>
+      <a class="bottom-link" href="https://twitter.com/MonkeyKingNFT" target="_blank">
+        <div class="more-link">Twitter</div>
+      </a>
+      <a class="bottom-link" href="https://medium.com/@MonkeyKing" target="_blank">
+        <div class="more-link">Medium</div>
+      </a>
+      <a class="bottom-link" href="https://www.reddit.com/user/MonkeyKingNFT" target="_blank">
+        <div class="more-link">Reddit</div>
+      </a>
       <div class="more-link">Telegram</div>
-      <div class="more-link">Document</div>
+      <a class="bottom-link" href="/static/dntg.English.pdf" target="_blank">
+        <div class="more-link">Document</div>
+      </a>
       <div class="more-link">Audit</div>
     </div>
   </div>
@@ -13,18 +23,18 @@
 <script>
 
 export default {
-name: "Footer",
+  name: "Footer",
   data() {
     return {
-      changeWX:false
+      changeWX: false
     }
   },
-  methods:{
-    actionWX(){
+  methods: {
+    actionWX() {
       this.changeWX = true
     },
-    actionCancel(){
-      this.changeWX=false
+    actionCancel() {
+      this.changeWX = false
     },
   }
 }
@@ -82,7 +92,7 @@ name: "Footer",
 
 }
 
-.more-link{
+.more-link {
   margin-top: 10px;
   cursor: pointer;
   width: 122px;
@@ -94,4 +104,7 @@ name: "Footer",
   background-size: 100% 100%;
 }
 
+.bottom-link {
+  text-decoration: none;
+}
 </style>
