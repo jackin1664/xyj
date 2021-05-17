@@ -1,14 +1,14 @@
 export default {
     domain:'http://tmk.finance',
     baseUrl: "https://api.tmk.finance/",
-    usdt: "0xcD8B0941bb3713bF5131BE2a0097565102C8cBB4",
-    sale: "0xDa917f385c8CB20BF90a5D3727aFC38691dD6A7A",
-    nft: "0x90f8184767410051F55c889e435233966652b4a1",
-    lock:"0x670acd770BB3F4d027C12a7dFF64ec27cbc7dbB8",
-    nftReward:"0x4362F9BD30194e6f7b9530538d8226325123d571",
-    market:"0x91746e3c8ae084D2F7027DC50192104e0384cB48",
-    tmk:"0x274A96788A0086e589960b25dF2e1943a5dCaC0d",
-    lpReward:"0xa64c44c7f75971b3Bdb699e210C4158B446CaDBD",
+    usdt: "0xa71edc38d189767582c38a3145b5873052c3e47a",
+    sale: "0xA37446142c141395534BC5eC9fd24E777ECD62a2",
+    nft: "0xbfD01Eeb3090e133b2f32b50b4630C76Ac223fe6",
+    lock:"0x501Bb73010e3D52C1B4e3Dd16E256459FB6A225C",
+    nftReward:"0x95FFaCdC77a67f6dB2ccFCD7c91a3A71caBcdEee",
+    market:"0x647c6236c620BDF2eeA5D3bFf1d8857bB15B25a3",
+    tmk:"0x9163cCa7848aF58fAb2477F1115E47945A04570d",
+    lpReward:"0x9e63C0405EFe15B34835EBEfE08dDAb5DeC7381e",
     price:"0x0eAEeb83426c306Fc6441477C1F193341B007690",
     cards: [
         {
@@ -359,7 +359,7 @@ export default {
             token_decimals: 18,
             token_earn: "MC",
             token_earn_icon: "/static/pic/token_icon/true.png",
-            reward_address: "0xa64c44c7f75971b3Bdb699e210C4158B446CaDBD",
+            reward_address: "0x9e63C0405EFe15B34835EBEfE08dDAb5DeC7381e",
             reward_decimals: 18,
             index:0,
             type:0//0 单币 1 LP
@@ -373,7 +373,7 @@ export default {
             token_decimals: 18,
             token_earn: "MC",
             token_earn_icon: "/static/pic/token_icon/true.png",
-            reward_address: "0xa64c44c7f75971b3Bdb699e210C4158B446CaDBD",
+            reward_address: "0x9e63C0405EFe15B34835EBEfE08dDAb5DeC7381e",
             reward_decimals: 18,
             index:1,
             type:1//0 单币 1 LP
@@ -387,7 +387,7 @@ export default {
             token_decimals: 18,
             token_earn: "MC",
             token_earn_icon: "/static/pic/token_icon/true.png",
-            reward_address: "0xa64c44c7f75971b3Bdb699e210C4158B446CaDBD",
+            reward_address: "0x9e63C0405EFe15B34835EBEfE08dDAb5DeC7381e",
             reward_decimals: 18,
             index:2,
             type:1//0 单币 1 LP

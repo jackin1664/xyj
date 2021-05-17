@@ -1,7 +1,7 @@
 <template>
   <div class="stop">
     <div class="dig-line">
-      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT开始预售啦！</span>
     </div>
     <div class="stop-container">
       <div class="stop-one">

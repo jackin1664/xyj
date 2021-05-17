@@ -5,10 +5,10 @@
         <div class="header-list">
           <span @click="goHome">首页</span>
           <span @click="goBuy">购买</span>
-          <span @click="goDig" >挖矿</span>
-          <span @click="comming">合成</span>
-          <span @click="goStop">商城</span>
-          <span @click="comming">对战</span>
+<!--          <span @click="goDig" >挖矿</span>-->
+<!--          <span @click="comming">合成</span>-->
+<!--          <span @click="goStop">商城</span>-->
+<!--          <span @click="comming">对战</span>-->
           <span @click="goPack">我的卡牌</span>
         </div>
         <div class="header-icon">
@@ -25,13 +25,13 @@
             <img src="../assect/header/line.png"/>
           <div  @click="goBuy" class="header-tab-title">购买</div>
             <img src="../assect/header/line.png"/>
-          <div @click="goDig" class="header-tab-title">挖矿</div>
-            <img src="../assect/header/line.png"/>
-            <div class="header-tab-title">合成</div>
-            <img src="../assect/header/line.png"/>
-          <div @click="goStop" class="header-tab-title">商城</div>
-            <img src="../assect/header/line.png"/>
-            <div class="header-tab-title">对战</div>
+<!--          <div @click="goDig" class="header-tab-title">挖矿</div>-->
+<!--            <img src="../assect/header/line.png"/>-->
+<!--            <div class="header-tab-title">合成</div>-->
+<!--            <img src="../assect/header/line.png"/>-->
+<!--          <div @click="goStop" class="header-tab-title">商城</div>-->
+<!--            <img src="../assect/header/line.png"/>-->
+<!--            <div class="header-tab-title">对战</div>-->
             <img src="../assect/header/line.png"/>
           <div @click="goPack" class="header-tab-title">我的卡牌</div>
             <img src="../assect/header/line.png"/>

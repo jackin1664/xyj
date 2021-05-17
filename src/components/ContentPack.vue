@@ -1,7 +1,7 @@
 <template>
   <div class="pack">
     <div class="dig-line">
-      <span><img src="../assect/content/laba.png" alt=""> NFT质押挖矿正式上线啦！</span>
+      <span><img src="../assect/content/laba.png" alt=""> NFT开始预售啦！</span>
     </div>
     <div class="pack-container">
       <!--              上部分-->
@@ -326,6 +326,7 @@ export default {
     async getMyWeapons() {
       let v = this
       var local_address = await v.action.getAddress()
+      if(!local_address) return false
       let weapons = await this.$http.getMyWeapon({address: local_address})
       weapons = weapons.data.data.weapon
       for (let it of weapons) {
@@ -339,6 +340,7 @@ export default {
     async getMyCards() {
       let v = this
       var local_address = await v.action.getAddress()
+      if(!local_address) return false
       let cards = await this.$http.getyMyCard({address: local_address})
       cards = cards.data.data.card
       for (let it of cards) {

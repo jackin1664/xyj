@@ -11,7 +11,9 @@
       <a class="bottom-link" href="https://www.reddit.com/user/MonkeyKingNFT" target="_blank">
         <div class="more-link">Reddit</div>
       </a>
-      <div class="more-link">Telegram</div>
+      <a class="bottom-link" href="https://t.me/NFTMonkeyKing" target="_blank">
+        <div class="more-link">Telegram</div>
+      </a>
       <a class="bottom-link" href="/static/dntg.English.pdf" target="_blank">
         <div class="more-link">Document</div>
       </a>
@@ -60,6 +62,7 @@ export default {
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
+  flex-wrap: wrap;
   //margin-bottom: 24px;
 }
 
